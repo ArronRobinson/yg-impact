@@ -1,0 +1,11 @@
+{
+  "home": {
+    "title": "Ciao mondo!"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Progetti",
+    "about": "Chi siamo",
+    "contact": "Contatto"
+  }
+}

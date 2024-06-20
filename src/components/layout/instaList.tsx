@@ -16,7 +16,7 @@ export async function InstaList(){
                         <div>mediatype: {post.media_type}</div>
                         <div className="flex">
                             {(await getPostById(post.id)).map(item => (
-                                <Video src={item.media_url} key={key}/>
+                                <Video src={item.media_url} key={item.id}/>
                             ))}
                         </div>
                     </div>

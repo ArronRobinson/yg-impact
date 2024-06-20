@@ -24,7 +24,7 @@ export function Video({src}:{src: string}){
             onMouseLeave={handleMouseLeave}
             className="w-64 h-64 transition-transform transform hover:scale-110"
         >
-            <video src={src} ref={videoRef} className="w-full h-full" loop/>
+            <video src={src} ref={videoRef} className="w-full h-full" loop muted/>
         </div>
     </>)
 }
