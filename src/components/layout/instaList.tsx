@@ -5,6 +5,7 @@ import { Video } from "./video";
 export async function InstaList(){
 
     const posts = await getInstagramFeed();
+    console.log(posts);
 
     return (
         <>
