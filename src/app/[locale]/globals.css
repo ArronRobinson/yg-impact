@@ -66,11 +66,27 @@
     }
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+@layer base {
+  * {
+    @apply border-border;
   }
+  body {
+    /* @apply bg-background text-foreground; */
+    scrollbar-width: none;
+  }
+}
+
+.no-scroll {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+  width: 100vw;
+  height: 100vh;
+  scrollbar-width: none;
+}
+
+/* Remove scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
