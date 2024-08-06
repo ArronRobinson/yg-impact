@@ -130,6 +130,46 @@ const NavItemsMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     );
 }
 
+// Individual NavItem component
+const NavItem = ({ path, text, index, closeMenu }: { path: string; text: string; index: number; closeMenu: () => void }) => {
+    const currentPath = usePathname();
+    const isActive = path === currentPath; // Assuming Next.js is used
+    const tailwindClass = isActive ? "underline-offset-4 underline text-4xl" : "text-4xl";
+
+    const navItemVariants = {
+        hidden: {
+            opacity: 0,
+            x: -50,
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: index * 0.2, // Stagger animation delay based on index
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+            },
+        },
+    };
+
+    return (
+        <motion.div
+            variants={navItemVariants}
+            // custom={index} // Pass index as custom prop for stagger effect
+            initial="hidden"
+            animate="visible"
+            className="flex"
+        >
+            <Link href={path}>
+                <Button onClick={closeMenu} className={tailwindClass} variant="link">
+                    {text}
+                </Button>
+            </Link>
+        </motion.div>
+    );
+};
+
 
 
 // <Button
