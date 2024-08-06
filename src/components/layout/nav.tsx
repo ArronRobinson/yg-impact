@@ -7,6 +7,8 @@ import LocalSwitcher from "../ui/localSwitcher";
 import { useEffect, useState } from "react";
 import { Icon } from "../ui/icon";
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from "next/image";
+
 
 export function Nav(){
 
@@ -34,7 +36,7 @@ export function Nav(){
     };
 
     return(
-        <nav className={`flex items-center justify-between p-5 relative`}>
+        <nav className={`flex items-center justify-between p-2 relative bg-bgNav rounded-3xl mx-12 mt-6 text-white`}>
             <div className="flex">
                 <LocalSwitcher/>
                 {/* <div className="px-4 py-2">"Logo"</div> */}
@@ -82,7 +84,7 @@ const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
 
     const t = useTranslations("nav");
     const path = usePathname();
-    const tailwindClass = "underline-offset-4 underline";
+    const tailwindClass = "bg-red-500 rounded-3xl";
 
     return (
         <>
@@ -99,6 +101,7 @@ const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
                 <Button onClick={closeMenu} className={path === "/contact" ? tailwindClass : ""} variant="link">{t("contact")}</Button>
             </Link>
         </>
+        
     );
 }
 
@@ -125,44 +128,26 @@ const NavItemsMenu = ({ closeMenu }: { closeMenu: () => void }) => {
             </motion.div>
         </>
     );
-};
+}
 
-// Individual NavItem component
-const NavItem = ({ path, text, index, closeMenu }: { path: string; text: string; index: number; closeMenu: () => void }) => {
-    const currentPath = usePathname();
-    const isActive = path === currentPath; // Assuming Next.js is used
-    const tailwindClass = isActive ? "underline-offset-4 underline text-4xl" : "text-4xl";
 
-    const navItemVariants = {
-        hidden: {
-            opacity: 0,
-            x: -50,
-        },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                delay: index * 0.2, // Stagger animation delay based on index
-                type: 'spring',
-                stiffness: 300,
-                damping: 30,
-            },
-        },
-    };
 
-    return (
-        <motion.div
-            variants={navItemVariants}
-            // custom={index} // Pass index as custom prop for stagger effect
-            initial="hidden"
-            animate="visible"
-            className="flex"
-        >
-            <Link href={path}>
-                <Button onClick={closeMenu} className={tailwindClass} variant="link">
-                    {text}
-                </Button>
-            </Link>
-        </motion.div>
-    );
-};
+// <Button
+//     variant='ghost'
+//     onClick={toggleMenu} 
+//     className="flex lg:hidden z-[9999] w-12 h-12 p-0"
+// >
+//     {menuOpen ? <Icon name='x' /> : <Icon name='menu' /> }
+// </Button>
+
+// {/* Overlay menu for small screens */}
+// {menuOpen && (
+//     <div className="absolute top-0 left-0 w-screen h-screen bg-white z-[8888] flex flex-col pt-20 p-5">
+//         <NavItems closeMenu={closeMenu} />
+//     </div>
+// )}
+
+// {/* Regular menu for large screens */}
+// <div className="hidden lg:flex">
+//     <NavItems closeMenu={closeMenu} />
+// </div>
