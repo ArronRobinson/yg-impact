@@ -66,28 +66,6 @@
     }
   }
 
-<<<<<<< HEAD
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
-  }
-
-  footer {
-    padding: 5em;
-    padding-left: 15em;
-    padding-right: 15em;
-    background-color: #1f1f1f;
-    box-sizing: border-box;
-  }
-
-  .links li {
-    padding-bottom: 1em;
-  }
-=======
 @layer base {
   * {
     @apply border-border;
@@ -112,4 +90,3 @@
 ::-webkit-scrollbar {
   display: none;
 }
->>>>>>> 032c56c8b4d46ac254e6dc7cfa3d65d58283bc57
