@@ -82,7 +82,7 @@ export function Nav(){
 // Desktop
 const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
 
-    const t = useTranslations("nav")
+    const t = useTranslations("nav");
     const path = usePathname();
     const tailwindClass = "bg-red-500 rounded-3xl";
 
