@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import LocalSwitcher from "../ui/localSwitcher";
 import { useState } from "react";
 import { Icon } from "../ui/icon";
+import Image from "next/image";
+
 
 export function Nav(){
 
@@ -17,7 +19,7 @@ export function Nav(){
     };
 
     return(
-        <nav className={`flex items-center justify-between p-2 relative`}>
+        <nav className={`flex items-center justify-between p-2 relative bg-bgNav rounded-3xl mx-12 mt-6 text-white`}>
             <div className="flex">
                 <LocalSwitcher/>
                 {/* <div className="px-4 py-2">"Logo"</div> */}
@@ -50,7 +52,7 @@ const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
 
     const t = useTranslations("nav")
     const path = usePathname();
-    const tailwindClass = "underline-offset-4 underline";
+    const tailwindClass = "bg-red-500 rounded-3xl";
 
     return (
         <>
@@ -67,6 +69,7 @@ const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
                 <Button onClick={closeMenu} className={path === "/contact" ? tailwindClass : ""} variant="link">{t("contact")}</Button>
             </Link>
         </>
+        
     );
 }
 
@@ -93,6 +96,8 @@ const NavItemsMenu = ({ closeMenu } : { closeMenu: ()=> void }) => {
         </>
     );
 }
+
+
 
 // <Button
 //     variant='ghost'

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Montserrat } from 'next/font/google';
 import "./globals.css";
 import { Nav } from "@/components/layout/nav";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Footer } from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
+const monsterRat = Montserrat ({subsets: ['latin'], display: 'swap',})
 
 
 export const metadata: Metadata = {
@@ -22,12 +25,13 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" >
+      <body className={monsterRat.className}>
       <NextIntlClientProvider messages={messages}>
         <Nav/>
         {children}
       </NextIntlClientProvider>
+      <Footer />
       </body>
     </html>
   );
