@@ -66,6 +66,7 @@
     }
   }
 
+<<<<<<< HEAD
   @layer base {
     * {
       @apply border-border;
@@ -86,3 +87,29 @@
   .links li {
     padding-bottom: 1em;
   }
+=======
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* @apply bg-background text-foreground; */
+    scrollbar-width: none;
+  }
+}
+
+.no-scroll {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+  width: 100vw;
+  height: 100vh;
+  scrollbar-width: none;
+}
+
+/* Remove scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+>>>>>>> 032c56c8b4d46ac254e6dc7cfa3d65d58283bc57

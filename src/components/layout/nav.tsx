@@ -4,8 +4,9 @@ import { Link, usePathname } from "@/navigation";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
 import LocalSwitcher from "../ui/localSwitcher";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "../ui/icon";
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from "next/image";
 
 
@@ -15,7 +16,23 @@ export function Nav(){
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen)
-        console.log(menuOpen);
+    };
+
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [menuOpen]);
+
+    const menuVariants = {
+        hidden: {
+            x: '100%',
+        },
+        visible: {
+            x: 0,
+        },
     };
 
     return(
@@ -34,11 +51,25 @@ export function Nav(){
             </Button>
             
             {/* Overlay menu for small screens */}
+            <AnimatePresence>
             {menuOpen && (
-                <div className="absolute top-0 right-0 w-screen bg-white h-screen z-[8888] flex flex-col items-cente pt-20 p-5 gap-3">
+                <motion.div 
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={menuVariants}
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    className="absolute top-0 right-0 w-full bg-gray-200 z-[8888] pt-20 p-5 gap-8 overflow-hidden h-screen w-screen"
+                >
                     <NavItemsMenu closeMenu={() => {setMenuOpen(false)}}/>
-                </div>
+                    <div className="absolute bottom-0 right-0 flex z-[9999] p-5 gap-5">
+                        <div>icon</div>
+                        <div>icon</div>
+                        <div>icon</div>
+                    </div>
+                </motion.div>
             )}
+            </AnimatePresence>
 
             {/* Regular menu for large screens */}
             <div className="hidden sm:flex">
@@ -48,6 +79,7 @@ export function Nav(){
     )
 }
 
+// Desktop
 const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
 
     const t = useTranslations("nav")
@@ -73,26 +105,27 @@ const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
     );
 }
 
-const NavItemsMenu = ({ closeMenu } : { closeMenu: ()=> void }) => {
-
+// Mobile
+const NavItemsMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     const t = useTranslations("nav")
-    const path = usePathname();
-    const tailwindClass = "underline-offset-4 underline text-3xl";
+
+    // Variants for individual NavItems animation
+
 
     return (
         <>
-            <Link href={"/"}>
-                <Button onClick={closeMenu} className={path === "/" ? tailwindClass : "text-3xl"} variant="link">{t("home")}</Button>
-            </Link>
-            <Link href={"/projects"}>
-                <Button onClick={closeMenu} className={path === "/projects" ? tailwindClass : "text-3xl"} variant="link">{t("projects")}</Button>
-            </Link>
-            <Link href={"/about"}>
-                <Button onClick={closeMenu} className={path === "/about" ? tailwindClass : "text-3xl"} variant="link">{t("about")}</Button>
-            </Link>
-            <Link href={"/contact"}>
-                <Button onClick={closeMenu} className={path === "/contact" ? tailwindClass : "text-3xl"} variant="link">{t("contact")}</Button>
-            </Link>
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit="hidden"
+                // transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                className="flex flex-col gap-8"
+            >
+                <NavItem path="/" text={t("home")} closeMenu={closeMenu} index={1}/>
+                <NavItem path="/projects" text={t("projects")} closeMenu={closeMenu} index={2} />
+                <NavItem path="/about" text={t("about")} closeMenu={closeMenu} index={3} />
+                <NavItem path="/contact" text={t("contact")} closeMenu={closeMenu} index={4} />
+            </motion.div>
         </>
     );
 }
