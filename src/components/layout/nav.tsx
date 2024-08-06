@@ -80,7 +80,7 @@ export function Nav(){
 // Desktop
 const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
 
-    const t = useTranslations("nav")
+    const t = useTranslations("nav");
     const path = usePathname();
     const tailwindClass = "underline-offset-4 underline";
 
