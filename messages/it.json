@@ -3,9 +3,9 @@
     "title": "Ciao mondo!"
   },
   "nav": {
-    "home": "Home",
-    "projects": "Progetti",
-    "about": "Chi siamo",
-    "contact": "Contatto"
+    "home": "home",
+    "projects": "progetti",
+    "about": "chi siamo",
+    "contact": "contatto"
   }
 }

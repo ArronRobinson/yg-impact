@@ -3,9 +3,25 @@
     "title": "Hallo, wereld!"
   },
   "nav": {
-    "home": "Home",
-    "projects": "Projecten",
-    "about": "Over",
-    "contact": "Contact"
+    "home": "home",
+    "projects": "projecten",
+    "about": "over",
+    "contact": "contact"
+  },
+
+  "header": {
+    "title": "ONVERGETELIJKE",
+    "subtitle": "MOMENTEN",
+    "impact": "Met blijvende impact"
+  },
+
+  "content": {
+    "title": "Betrokkenheid",
+    "subtitle": "& inspiratie",
+    "event": "in elk evenement",
+    "text": "Als een toegewijde en gepassioneerde freelancer in de evenementenbranche zet Ylenia Guerrini zich in voor het ontwerpen, creëren en organiseren van buitengewone evenementen die niet alleen boeien, maar ook een blijvende indruk achterlaten.",
+    "subtext": "Haar doel is om onvergetelijke ervaringen te creëren die diep resoneren bij de deelnemers, waarbij elk evenement dat ze organiseert echt uniek en gedenkwaardig is.",
+    "quote": "De focus ligt op het inspireren en betrekken van de jongere generaties,",
+    "subquote" : "terwijl tegelijkertijd unieke en gedenkwaardige ervaringen worden geboden"
   }
 }

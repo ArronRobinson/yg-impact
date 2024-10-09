@@ -18,6 +18,16 @@ const config = {
       },
     },
     extend: {
+
+      fontFamily: {
+        playfairBold: ['var(--font-playfairBold)', 'sans-serif'],
+        playfairThin: ['var(--font-playfairThin)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
+        herrVon: ['var(--font-herrVon)', 'sans-serif'],
+      },
+      maxWidth: {
+        '8xl': '96rem',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -25,7 +35,10 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         icon: '#f8f8f8',
-        bgNav: '#1f1f1f',
+        bgNav: '#fhfhfh',
+        gold: '#BFA592',
+        bgFoot: '#1f1f1f',
+        bgDefault: '#fafafa',
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -69,10 +82,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        marquee: {
+          '0%': { transform: 'translateX(-25%)' },
+          '100%': { transform: 'translateX(-75%)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: 'marquee 40s linear infinite',
       },
     },
   },

@@ -1,193 +1,98 @@
-"use client"
+// 
+
+"use client";
 
 import { Link, usePathname } from "@/navigation";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
 import LocalSwitcher from "../ui/localSwitcher";
-import { useEffect, useState } from "react";
-import { Icon } from "../ui/icon";
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from "next/image";
+import { useState, useEffect } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 
+export function Nav() {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-export function Nav(){
+  const path = usePathname();
+  const t = useTranslations("nav");
 
-    const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen)
+  const handleMenuItemClick = () => {
+    setMenuOpen(false);
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
     };
 
-    useEffect(() => {
-        if (menuOpen) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
-        }
-    }, [menuOpen]);
+    window.addEventListener('scroll', handleScroll);
 
-    const menuVariants = {
-        hidden: {
-            x: '100%',
-        },
-        visible: {
-            x: 0,
-        },
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
 
-    return(
-        <nav className={`flex items-center justify-between p-2 relative bg-bgNav rounded-3xl mx-12 mt-6 text-white`}>
-            <div className="flex">
-                <LocalSwitcher/>
-                {/* <div className="px-4 py-2">"Logo"</div> */}
-            </div>
-
-            <Button
-                variant='ghost'
-                onClick={toggleMenu} 
-                className="flex sm:hidden z-[9999] w-12 h-12 p-0"
-            >
-                {menuOpen ? <Icon name='x' /> : <Icon name='menu' /> }
-            </Button>
-            
-            {/* Overlay menu for small screens */}
-            <AnimatePresence>
-            {menuOpen && (
-                <motion.div 
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={menuVariants}
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    className="absolute top-0 right-0 w-full bg-gray-200 z-[8888] pt-20 p-5 gap-8 overflow-hidden h-screen w-screen"
-                >
-                    <NavItemsMenu closeMenu={() => {setMenuOpen(false)}}/>
-                    <div className="absolute bottom-0 right-0 flex z-[9999] p-5 gap-5">
-                        <div>icon</div>
-                        <div>icon</div>
-                        <div>icon</div>
-                    </div>
-                </motion.div>
-            )}
-            </AnimatePresence>
-
-            {/* Regular menu for large screens */}
-            <div className="hidden sm:flex">
-                <NavItems closeMenu={() => {setMenuOpen(false)}}/>
-            </div>
-        </nav>
-    )
-}
-
-// Desktop
-const NavItems = ({ closeMenu } : { closeMenu: ()=> void }) => {
-
-    const t = useTranslations("nav");
-    const path = usePathname();
-    const tailwindClass = "bg-red-500 rounded-3xl";
-
-    return (
-        <>
-            <Link href={"/"}>
-                <Button onClick={closeMenu} className={path === "/" ? tailwindClass : ""} variant="link">{t("home")}</Button>
-            </Link>
-            <Link href={"/projects"}>
-                <Button onClick={closeMenu} className={path === "/projects" ? tailwindClass : ""} variant="link">{t("projects")}</Button>
-            </Link>
-            <Link href={"/about"}>
-                <Button onClick={closeMenu} className={path === "/about" ? tailwindClass : ""} variant="link">{t("about")}</Button>
-            </Link>
-            <Link href={"/contact"}>
-                <Button onClick={closeMenu} className={path === "/contact" ? tailwindClass : ""} variant="link">{t("contact")}</Button>
-            </Link>
-        </>
-        
-    );
-}
-
-// Mobile
-const NavItemsMenu = ({ closeMenu }: { closeMenu: () => void }) => {
-    const t = useTranslations("nav")
-
-    // Variants for individual NavItems animation
-
-
-    return (
-        <>
-            <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit="hidden"
-                // transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                className="flex flex-col gap-8"
-            >
-                <NavItem path="/" text={t("home")} closeMenu={closeMenu} index={1}/>
-                <NavItem path="/projects" text={t("projects")} closeMenu={closeMenu} index={2} />
-                <NavItem path="/about" text={t("about")} closeMenu={closeMenu} index={3} />
-                <NavItem path="/contact" text={t("contact")} closeMenu={closeMenu} index={4} />
-            </motion.div>
-        </>
-    );
-}
-
-// Individual NavItem component
-const NavItem = ({ path, text, index, closeMenu }: { path: string; text: string; index: number; closeMenu: () => void }) => {
-    const currentPath = usePathname();
-    const isActive = path === currentPath; // Assuming Next.js is used
-    const tailwindClass = isActive ? "underline-offset-4 underline text-4xl" : "text-4xl";
-
-    const navItemVariants = {
-        hidden: {
-            opacity: 0,
-            x: -50,
-        },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                delay: index * 0.2, // Stagger animation delay based on index
-                type: 'spring',
-                stiffness: 300,
-                damping: 30,
-            },
-        },
-    };
-
-    return (
-        <motion.div
-            variants={navItemVariants}
-            // custom={index} // Pass index as custom prop for stagger effect
-            initial="hidden"
-            animate="visible"
-            className="flex"
+  return (
+    <div className={`top-0 z-50 bg-white transition-shadow duration-300 ${isScrolled ? 'shadow-sm' : ''}`}>
+      <div className="flex items-center justify-between pt-12 pb-12 pl-6 pr-6 md:flex-col md:items-center md:gap-5">
+        <div className="md:absolute top-8 left-8">
+          <LocalSwitcher />
+        </div>
+        <a href="/">
+          <h1 className="font-playfairBold text-2xl md:text-5xl">
+            <span className="text-gold">YG</span> IMPACT
+          </h1>
+        </a>
+        <div className="flex md:hidden">
+          <button
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+            className="z-50 relative"
+          >
+            {menuOpen ? <HiX size={32} /> : <HiMenu size={32} />}
+          </button>
+        </div>
+        {/* Overlay Menu for Mobile */}
+        <nav
+          className={`fixed inset-0 z-40 bg-white flex flex-col justify-center items-center gap-8 transition-transform duration-300 transform 
+            ${menuOpen ? "translate-x-0" : "translate-x-full"} md:relative md:translate-x-0 md:flex-row md:flex md:gap-72`}
         >
-            <Link href={path}>
-                <Button onClick={closeMenu} className={tailwindClass} variant="link">
-                    {text}
-                </Button>
-            </Link>
-        </motion.div>
-    );
-};
-
-
-
-// <Button
-//     variant='ghost'
-//     onClick={toggleMenu} 
-//     className="flex lg:hidden z-[9999] w-12 h-12 p-0"
-// >
-//     {menuOpen ? <Icon name='x' /> : <Icon name='menu' /> }
-// </Button>
-
-// {/* Overlay menu for small screens */}
-// {menuOpen && (
-//     <div className="absolute top-0 left-0 w-screen h-screen bg-white z-[8888] flex flex-col pt-20 p-5">
-//         <NavItems closeMenu={closeMenu} />
-//     </div>
-// )}
-
-// {/* Regular menu for large screens */}
-// <div className="hidden lg:flex">
-//     <NavItems closeMenu={closeMenu} />
-// </div>
+          <Link href="/" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("home")}
+            </Button>
+          </Link>
+          <Link href="/projects" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/projects" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("projects")}
+            </Button>
+          </Link>
+          <Link href="/about" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/about" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("about")}
+            </Button>
+          </Link>
+          <Link href="/contact" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/contact" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("contact")}
+            </Button>
+          </Link>
+        </nav>
+      </div>
+    </div>
+  );
+}

@@ -75,14 +75,17 @@
     }
   }
 
-  footer {
-    padding: 5em;
-    padding-left: 15em;
-    padding-right: 15em;
-    background-color: #1f1f1f;
-    box-sizing: border-box;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
-
-  .links li {
-    padding-bottom: 1em;
+  
+  .animate-marquee {
+    display: flex;
+    animation: marquee 15s linear infinite;
   }
+  

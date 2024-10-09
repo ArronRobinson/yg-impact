@@ -28,7 +28,7 @@ export default function LocalSwitcher(){
             </select>
         </label> */}
         <Select defaultValue={localActive} onValueChange={onSelectChange}>
-            <SelectTrigger className="">
+            <SelectTrigger className="rounded-3xl text-xs">
                 <SelectValue placeholder="Language" />
             </SelectTrigger>
             <SelectContent>

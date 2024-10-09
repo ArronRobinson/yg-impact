@@ -3,9 +3,25 @@
     "title": "Hello, world!"
   },
   "nav":{
-    "home": "Home",
-    "projects": "Projects",
-    "about": "About",
-    "contact": "Contact"
+    "home": "home",
+    "projects": "projects",
+    "about": "about",
+    "contact": "contact"
+  },
+
+  "header": {
+    "title": "UNFORGETTABLE",
+    "subtitle": "MOMENTS",
+    "impact": "With lasting impact"
+  },
+  
+  "content": {
+    "title": "Involvement",
+    "subtitle": "& inspiration",
+    "event": "within every event",
+    "text": "As a dedicated and passionate freelancer in the event industry, Ylenia Guerrini is committed to designing, creating, and organizing extraordinary events that not only captivate but also leave a lasting impact.",
+    "subtext": "Her goal is to craft unforgettable experiences that resonate deeply with participants, ensuring that each event she curates is truly unique and memorable.",
+    "quote": "The focus is on inspiring and engaging younger generations,",
+    "subquote" : "while at the same time providing unique and memorable experiences."
   }
 }
