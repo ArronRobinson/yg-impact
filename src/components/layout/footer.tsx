@@ -34,7 +34,6 @@ export function Footer () {
                     <h1 className='footer-heading text-xl mb-2 text-center font-playfairThin'>Social Connection</h1>
                     <div className='flex justify-center gap-6'>
                         <a href='https://www.instagram.com/yg.impact/' className='icon-container'><FontAwesomeIcon className='h-8 w-8' icon={faInstagram} /></a>
-                        <a href='' className='icon-container'><FontAwesomeIcon className='h-8 w-8'icon={faFacebook} /></a>
                         <a href='https://www.linkedin.com/company/yg-impact/' className='icon-container'><FontAwesomeIcon className= 'h-8 w-8'icon={faLinkedin} /></a>
                     </div>
                 </div>

@@ -1,10 +1,15 @@
-
+import { useTranslations } from "next-intl";
+import { Content } from "./_component/content";
 
 export default function About(){
 
+    const t = useTranslations("about")
+
     return(
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div>About</div>
+        <main className="">
+            <div className="flex justify-center">
+                <Content />    
+            </div>
         </main>
     )
 }

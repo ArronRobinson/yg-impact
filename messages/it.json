@@ -2,10 +2,21 @@
   "home": {
     "title": "Ciao mondo!"
   },
+  
   "nav": {
     "home": "home",
     "projects": "progetti",
     "about": "chi siamo",
     "contact": "contatto"
+  },
+ 
+  "content": {
+    "title": "Coinvolgimento",
+    "subtitle": "& ispirazione",
+    "event": "in ogni evento",
+    "text": "Con oltre 10 anni di esperienza nel settore degli eventi, sono pronta a dare vita alla tua giornata indimenticabile. Che si tratti del matrimonio dei tuoi sogni, di un evento aziendale spettacolare o di un progetto culturale unico, mi assicuro che ogni dettaglio sia eseguito alla perfezione.",
+    "subtext": "Come freelance dedicata nel settore degli eventi, la mia passione è progettare, creare e organizzare eventi straordinari. Il mio obiettivo non è solo affascinare, ma lasciare un'impressione duratura su tutti i partecipanti. Ogni evento che organizzo è unico e memorabile, con un'attenzione particolare alla creazione di esperienze che risuonano profondamente e vengono ricordate a lungo dopo la loro conclusione.",
+    "quote": "Il giorno stesso, sono il tuo punto di riferimento, la leader dietro le quinte e colei che garantisce che ogni fase del processo si svolga senza intoppi.",
+    "subquote" : "while at the same time providing unique and memorable experiences."
   }
 }

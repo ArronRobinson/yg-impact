@@ -7,9 +7,12 @@ export async function InstaList() {
   const posts = await getInstagramFeed();
   console.log(posts);
 
+  // Slice to get only the first 3 posts
+  const limitedPosts = posts.slice(0, 3);
+
   // Use Promise.all to handle async operations before mapping
   const postElements = await Promise.all(
-    posts.map(async (post, key) => {
+    limitedPosts.map(async (post, key) => {
       if (post.media_type === "CAROUSEL_ALBUM") {
         const carouselItems = await getPostById(post.id);
 
@@ -31,7 +34,7 @@ export async function InstaList() {
   );
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 w-[70vw]">
       {postElements.flat()}
     </div>
   );

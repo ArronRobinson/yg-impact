@@ -2,8 +2,6 @@ import Image from "next/image";
 import pic4 from "../../../../public/images/pic4.jpg";
 import pic8 from "../../../../public/images/pic8.jpg";
 import pic6 from "../../../../public/images/pic6.jpg";
-import TextMarquee from "@/components/ui/TextMarquee";
-import AnimatedPolaroid from "@/components/ui/animatedPolaroid";
 import React from "react";
 import { useTranslations } from "next-intl";
 
@@ -29,41 +27,37 @@ export const Content = () => {
 
       {/* Image Section */}
       <div className="relative flex flex-col items-center md:items-end justify-center h-full mt-8 md:mt-0">
-        <div className="md:absolute md:right-40 md:top-1/4 md:transform md:-translate-y-1/2 mb-8 md:mb-0">
-          <AnimatedPolaroid
+        <div className="md:absolute md:right-30 md:top-1/4 md:transform md:-translate-y-1/2 mb-8 md:mb-0">
+          <Image
+            className="border-[12px] border-white drop-shadow-lg transform rotate-12"
             src={pic4}
             alt="pic1"
             height={500}
             width={500}
-            rotateDirection="right"
-            delay={0}
           />
         </div>
-        <div className="md:absolute md:right-5 md:top-2/3 md:transform md:-translate-y-1/2">
-          <AnimatedPolaroid
+        <div className="md:absolute md:right-[-50px] md:top-2/3 md:transform md:-translate-y-1/2">
+          <Image
+            className="border-[12px] border-white drop-shadow-lg transform -rotate-6"
             src={pic8}
             alt="pic2"
             height={500}
             width={500}
-            rotateDirection="left"
-            delay={0.2}
           />
         </div>
       </div>
       <div className="relative flex justify-center md:justify-start mt-8 md:mt-0">
-        <AnimatedPolaroid
+        <Image
+          className="border-[12px] border-white drop-shadow-lg rotate-3"
           src={pic6}
-          alt="pic1"
+          alt="pic3"
           height={500}
           width={500}
-          rotateDirection="fromLeft"
-          delay={0.4}
         />
       </div>
-      <div className="mt-8 md:mt-0 flex justify-center items-center">
-        <p className="font-inter text-base md:text-xl italic text-center md:text-right">
-            {t("quote")} <br />
-            {t("subquote")}
+      <div className="mt-8 md:mt-0 flex flex-col justify-center items-center">
+        <p className="font-playfairThin text-base md:text-2xl italic text-center md:text-center">
+          &quot;{t("quote")}&quot;
         </p>
       </div>
     </div>

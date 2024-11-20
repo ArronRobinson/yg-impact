@@ -3,10 +3,11 @@
     "title": "Hallo, wereld!"
   },
   "nav": {
-    "home": "home",
-    "projects": "projecten",
-    "about": "over",
-    "contact": "contact"
+    "home": "Home",
+    "projects": "Projecten",
+    "about": "Over",
+    "contact": "Contact",
+    "projectpage": "BEKIJK MIJN PROJECTEN"
   },
 
   "header": {
@@ -19,9 +20,16 @@
     "title": "Betrokkenheid",
     "subtitle": "& inspiratie",
     "event": "in elk evenement",
-    "text": "Als een toegewijde en gepassioneerde freelancer in de evenementenbranche zet Ylenia Guerrini zich in voor het ontwerpen, creëren en organiseren van buitengewone evenementen die niet alleen boeien, maar ook een blijvende indruk achterlaten.",
-    "subtext": "Haar doel is om onvergetelijke ervaringen te creëren die diep resoneren bij de deelnemers, waarbij elk evenement dat ze organiseert echt uniek en gedenkwaardig is.",
-    "quote": "De focus ligt op het inspireren en betrekken van de jongere generaties,",
-    "subquote" : "terwijl tegelijkertijd unieke en gedenkwaardige ervaringen worden geboden"
+    "text": "Met meer dan 10 jaar ervaring in de evenementenbranche sta ik klaar om jouw onvergetelijke dag tot leven te brengen. Of het nu gaat om de bruiloft van je dromen, een spetterend bedrijfsfeest of een uniek cultureel project, ik zorg ervoor dat elk detail perfect wordt uitgevoerd.",
+    "subtext": "Als toegewijde freelancer in de evenementenbranche is mijn passie het ontwerpen, creëren en organiseren van buitengewone evenementen. Mijn doel is niet alleen om te boeien, maar om een blijvende indruk achter te laten bij alle deelnemers. Elk evenement dat ik organiseer is uniek en gedenkwaardig, met de focus op het creëren van ervaringen die diep resoneren en nog lang na afloop worden herinnerd.",
+    "quote": "Op de dag zelf ben ik je aanspreekpunt, de leider achter de schermen en degene die zorgt dat elke schakel in het proces soepel verloopt.",
+    "subquote" : "Of het nu gaat om artist handling, stage management of de algehele coördinatie, ik ben degene die het overzicht bewaart en ervoor zorgt dat jij je nergens zorgen over hoeft te maken."
+  },
+
+  "about": {
+    "title": "Mijn naam is",
+    "name": "Ylenia Guerrini",
+    "titleText": "een ervaren internationale organisator met meer dan 10 jaar ervaring in de evenementen- en productiewereld, weet ik precies wat er nodig is om een evenement of productie tot in de kleinste details te laten slagen. Of het nu gaat om het organiseren van een grootschalig evenement of het beheren van een kleinschalige productie, ik zorg ervoor dat alles vlekkeloos verloopt.",
+    "subText": "Gedreven, doelgericht en met een koele blik op het geheel, werk ik samen met mijn opdrachtgevers om hun dromen en wensen tot leven te brengen. Elke productie is uniek, en ik zorg ervoor dat elk evenement perfect is afgestemd op de visie en verwachtingen van mijn klant. "
   }
 }

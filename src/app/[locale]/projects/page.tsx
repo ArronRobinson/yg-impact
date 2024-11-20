@@ -8,9 +8,6 @@ export default function Projects(){
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             {/* <div>Projects</div> */}
             <InstaList/>
-            <div>
-                <h1>Projects</h1>
-            </div>
         </main>
         
     )

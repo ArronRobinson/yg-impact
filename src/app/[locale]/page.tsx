@@ -5,18 +5,31 @@ import TextMarquee from "@/components/ui/TextMarquee";
 import { Header } from "./_component/header";
 import { Content } from "./_component/content";
 import AnimatedPolaroid from "@/components/ui/animatedPolaroid";
-import { InstaList } from "@/components/layout/instaList";
+import { InstaList } from "@/components/layout/instaList2";
+import { Link, usePathname } from "@/navigation";
+import { Button } from "../../components/ui/button";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+
+  const t = useTranslations("nav");
+
   return (
     <>
-      <Header />
       <main className="w-full bg-bgDefault flex flex-col relative items-center">
-        <Content />
-        <div className="relative w-full max-w-7xl h-[20vh] md:h-[30vh] flex flex-col items-center justify-center">
-          <TextMarquee text="EVENTMANAGEMENT • STAGEMANAGEMENT • PRODUCTIELEIDER • " />
+        <div className="w-full bg-gray-100 flex justify-center">
+          <Content />  
         </div>
-        <InstaList />
+        <div className="mb-6 mt-32">
+          <InstaList />
+        </div>
+        <div>
+          <Link href="/projects">
+            <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
+              {t("projectpage")}
+            </Button>
+          </Link>
+        </div>
       </main>
     </>
   );

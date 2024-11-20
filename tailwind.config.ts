@@ -37,6 +37,7 @@ const config = {
         icon: '#f8f8f8',
         bgNav: '#fhfhfh',
         gold: '#BFA592',
+        darkGold: '#e1ae5b',
         bgFoot: '#1f1f1f',
         bgDefault: '#fafafa',
         primary: {

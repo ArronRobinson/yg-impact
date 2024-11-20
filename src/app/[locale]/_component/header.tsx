@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import banner from '../../../../public/images/pic13.jpg'
+import banner from '../../../../public/images/pic8.jpg'
 import { useTranslations } from "next-intl";
 
 export const Header = () => {
@@ -8,7 +8,7 @@ export const Header = () => {
   const t = useTranslations("header");
 
   return (
-    <div className="relative w-full h-[70vh]">
+    <div className="relative w-full h-[50vh]">
       <Image 
         src={banner} 
         alt="banner"
@@ -21,7 +21,6 @@ export const Header = () => {
         <h1 className="text-white font-playfairThin text-[4vw] leading-none z-10">
           {t('title')}<br />
           {t('subtitle')}<br />
-          {/* <span className="font-herrVon text-[3vw]">{t('impact')}</span> */}
         </h1>
       </div>
     </div>
