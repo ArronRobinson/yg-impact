@@ -12,6 +12,7 @@ import banner from '../../../public/images/pic4.jpg';
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false); // New state for visibility
 
   const path = usePathname();
   const t = useTranslations("nav");
@@ -32,6 +33,11 @@ export function Nav() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  // Set visibility to true when the component is mounted
+  useEffect(() => {
+    setIsVisible(true);
   }, []);
 
   return (
@@ -70,9 +76,9 @@ export function Nav() {
             </h1>
           </a>
           {/* Overlay Menu */}
-          <div className={`fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}onClick={toggleMenu}>
+          <div className={`fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={toggleMenu}>
           </div>
-          <nav className={`fixed inset-y-0 right-0 z-40 w-1/3 bg-white flex flex-col justify-center items-center gap-24 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+          <nav className={`fixed inset-y-0 right-0 z-40 w-1/3 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
             <Link href="/" onClick={handleMenuItemClick}>
               <Button
                 className={`${path === "/" ? "before:scale-x-100" : ""} `}
@@ -110,16 +116,19 @@ export function Nav() {
       </div>
 
       {/* Conditionally Rendered Centered Text and Button at Bottom */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20">
-          <div className="text-white font-playfairBold text-7xl">
-            <span className="text-white">YG</span> IMPACT
-          </div>
-          <Link href="/projects">
-            <Button className="mt-12 mb-14 px-12 py-6 bg-gold text-white text-xl font-inter rounded-none hover:bg-darkGold transition-colors duration-300">
-              {t("projectpage")}
-            </Button>
-          </Link>
+      <div
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+        style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }} // Slide-up and fade-in transition
+      >
+        <div className="text-white font-playfairBold text-7xl">
+          <span className="text-white">YG</span> IMPACT
         </div>
+        <Link href="/projects">
+          <Button className="mt-12 mb-14 px-12 py-6 bg-gold text-white text-xl font-inter rounded-none hover:bg-darkGold transition-colors duration-300">
+            {t("projectpage")}
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

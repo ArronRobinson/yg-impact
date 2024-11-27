@@ -18,7 +18,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-black text-2xl font-inter relative before:content-[''] before:absolute before:left-0 before:right-0 before:bottom-[8px] before:h-[1px] before:bg-black before:transition-transform before:duration-300 before:scale-x-0 hover:before:scale-x-100",
+        link: "text-black text-xl font-inter relative before:content-[''] before:absolute before:left-0 before:right-0 before:bottom-[8px] before:h-[1px] before:bg-black before:transition-transform before:duration-300 before:scale-x-0 hover:before:scale-x-100",
         quickLink : "text-white"
       },
       size: {

@@ -9,8 +9,8 @@ export default function About(){
     const t = useTranslations("about")
 
     return(
-        <main className="">
-            <div className="flex justify-center bg-gray-100">
+        <main>
+            <div className="flex justify-center bg-gray-100 px-6">
                 <Content />    
             </div>
             <div>
@@ -18,7 +18,7 @@ export default function About(){
             </div>
             <div className="flex items-center justify-center mb-64">
                 <Link href="/contact">
-                    <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
+                    <Button className="mt-12 px-12 py-6 bg-gold text-white text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
                         {t("link")}
                     </Button>
                 </Link>
