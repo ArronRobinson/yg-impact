@@ -16,7 +16,7 @@ export default function About(){
             <div>
                 <Content2 />
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center mb-64">
                 <Link href="/contact">
                     <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
                         {t("link")}

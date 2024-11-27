@@ -70,10 +70,9 @@ export function Nav() {
             </h1>
           </a>
           {/* Overlay Menu */}
-          <nav
-            className={`fixed inset-0 z-40 bg-white flex flex-col justify-center items-center gap-8 transition-transform duration-300 transform 
-              ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
-          >
+          <div className={`fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}onClick={toggleMenu}>
+          </div>
+          <nav className={`fixed inset-y-0 right-0 z-40 w-1/3 bg-white flex flex-col justify-center items-center gap-24 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
             <Link href="/" onClick={handleMenuItemClick}>
               <Button
                 className={`${path === "/" ? "before:scale-x-100" : ""} `}
@@ -111,8 +110,7 @@ export function Nav() {
       </div>
 
       {/* Conditionally Rendered Centered Text and Button at Bottom */}
-      {!menuOpen && ( // Only show when the menu is not open
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-50">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20">
           <div className="text-white font-playfairBold text-7xl">
             <span className="text-white">YG</span> IMPACT
           </div>
@@ -122,7 +120,6 @@ export function Nav() {
             </Button>
           </Link>
         </div>
-      )}
     </div>
   );
 }
