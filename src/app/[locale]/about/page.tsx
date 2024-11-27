@@ -1,6 +1,8 @@
 import { useTranslations } from "next-intl";
 import { Content } from "./_component/content";
 import { Content2 } from "./_component/content2";
+import { Link, usePathname } from "@/navigation";
+import { Button } from "../../../components/ui/button";
 
 export default function About(){
 
@@ -13,6 +15,13 @@ export default function About(){
             </div>
             <div>
                 <Content2 />
+            </div>
+            <div className="flex items-center justify-center">
+                <Link href="/contact">
+                    <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
+                        {t("link")}
+                    </Button>
+                </Link>
             </div>
         </main>
     )
