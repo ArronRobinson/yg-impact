@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,10 +16,47 @@ export default function ContactForm() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission, e.g., sending data to an API
-    console.log('Form data submitted:', formData);
+
+    // Validate email
+    if (!isValidEmail(formData.email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    const templateParams = {
+      from_name: formData.fullName,  // Corresponds to {{from_name}}
+      from_email: formData.email,    // Corresponds to {{from_email}}
+      message: formData.message,     // Corresponds to {{message}}
+      to_name: 'Ylenia'               // Corresponds to {{to_name}} (this can be the admin's name or a placeholder)
+    };
+    
+    console.log('Template Params:', templateParams);
+
+    emailjs
+      .send(
+        'service_uu1i67a', // Service ID from EmailJS dashboard
+        'template_38x5wbe', // Template ID from EmailJS dashboard
+        templateParams,
+        'DWCFF62dyVvYNtsW1' // User ID from EmailJS dashboard
+      )
+      .then(
+        (response) => {
+          console.log('Email sent successfully:', response);
+          alert('Your message has been sent!');
+          setFormData({ fullName: '', email: '', message: '' }); // Clear the form
+        },
+        (error) => {
+          console.log('Email sending failed:', error);
+          alert('There was an issue sending your message. Please try again.');
+        }
+      );
   };
 
   return (
