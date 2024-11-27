@@ -117,7 +117,7 @@ export function Nav() {
             <span className="text-white">YG</span> IMPACT
           </div>
           <Link href="/projects">
-            <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-xl font-inter rounded-none hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-12 mb-14 px-12 py-6 bg-gold text-white text-xl font-inter rounded-none hover:bg-darkGold transition-colors duration-300">
               {t("projectpage")}
             </Button>
           </Link>

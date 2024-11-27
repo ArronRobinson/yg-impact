@@ -5,7 +5,7 @@ export const Content = () => {
   const t = useTranslations("about");
 
   return (
-    <div className="w-full max-w-7xl mx-auto flex flex-col min-h-screen p-10">
+    <div className="w-full max-w-7xl mx-auto flex min-h-screen py-20 ">
       {/* Main text block */}
       <div>
         <h1 className="font-playfairThin text-7xl mb-4">{t("title")}</h1>
