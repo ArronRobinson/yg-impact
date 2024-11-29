@@ -3,7 +3,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Nav } from "@/components/layout/navNew";
 import { Footer } from "@/components/layout/footer";
-import TextMarquee from "@/components/ui/TextMarquee";
 import { herrVon, inter, playfairBold, playfairThin } from "@/utils/fonts";
 import "./globals.css";
 
