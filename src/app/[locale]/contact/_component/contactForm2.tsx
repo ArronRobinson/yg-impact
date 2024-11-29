@@ -1,17 +1,18 @@
 "use client";
 
-import { useState } from 'react';
-import emailjs from 'emailjs-com';
+import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    message: '',
+    fullName: "",
+    email: "",
+    message: "",
   });
 
-  // Type the event parameter correctly
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -26,35 +27,33 @@ export default function ContactForm() {
 
     // Validate email
     if (!isValidEmail(formData.email)) {
-      alert('Please enter a valid email address');
+      alert("Invalid email address. Please try again."); // Alert instead of toast
       return;
     }
 
     const templateParams = {
-      from_name: formData.fullName,  // Corresponds to {{from_name}}
-      from_email: formData.email,    // Corresponds to {{from_email}}
-      message: formData.message,     // Corresponds to {{message}}
-      to_name: 'Ylenia'               // Corresponds to {{to_name}} (this can be the admin's name or a placeholder)
+      from_name: formData.fullName, // Corresponds to {{from_name}}
+      from_email: formData.email, // Corresponds to {{from_email}}
+      message: formData.message, // Corresponds to {{message}}
+      to_name: "Ylenia", // Corresponds to {{to_name}}
     };
-    
-    console.log('Template Params:', templateParams);
 
     emailjs
       .send(
-        'service_uu1i67a', // Service ID from EmailJS dashboard
-        'template_38x5wbe', // Template ID from EmailJS dashboard
+        "service_uu1i67a", // Service ID from EmailJS dashboard
+        "template_38x5wbe", // Template ID from EmailJS dashboard
         templateParams,
-        'DWCFF62dyVvYNtsW1' // User ID from EmailJS dashboard
+        "DWCFF62dyVvYNtsW1" // User ID from EmailJS dashboard
       )
       .then(
         (response) => {
-          console.log('Email sent successfully:', response);
-          alert('Your message has been sent!');
-          setFormData({ fullName: '', email: '', message: '' }); // Clear the form
+          console.log("Email sent successfully:", response);
+          alert("Your message has been sent successfully!"); // Alert instead of toast
+          setFormData({ fullName: "", email: "", message: "" }); // Clear the form
         },
         (error) => {
-          console.log('Email sending failed:', error);
-          alert('There was an issue sending your message. Please try again.');
+          console.log("Email sending failed:", error);
+          alert("There was an error sending your message. Please try again."); // Alert instead of toast
         }
       );
   };
@@ -99,7 +98,7 @@ export default function ContactForm() {
           type="submit"
           className="px-6 py-2 border border-black text-black rounded-full hover:bg-gray-100"
         >
-          Submit
+          Versturen
         </button>
       </div>
     </form>
