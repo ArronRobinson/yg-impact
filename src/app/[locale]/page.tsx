@@ -14,7 +14,7 @@ export default function Home() {
         <div className="w-full bg-gray-100 flex justify-center">
           <Content />  
         </div>
-        <div className="mb-6 mt-32">
+        <div className="mb-6 mt-32 max-w-7xl flex">
           <InstaList />
         </div>
         <div>

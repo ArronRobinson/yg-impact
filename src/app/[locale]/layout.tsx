@@ -26,9 +26,7 @@ export default async function RootLayout({
             <div className="top-0 z-50">
               <Nav />
             </div>
-            <main className="flex-grow">
-              {children}
-            </main>
+            <main className="flex-grow"> {children}</main>
             <Footer />
           </div>
         </NextIntlClientProvider>
