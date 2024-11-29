@@ -1,10 +1,4 @@
-import Image from "next/image";
-import pic1 from '../../../public/images/pic1.jpg';
-import pic2 from '../../../public/images/pic2.jpeg';
-import TextMarquee from "@/components/ui/TextMarquee";
-import { Header } from "./_component/header";
 import { Content } from "./_component/content";
-import AnimatedPolaroid from "@/components/ui/animatedPolaroid";
 import { InstaList } from "@/components/layout/instaList2";
 import { Link, usePathname } from "@/navigation";
 import { Button } from "../../components/ui/button";

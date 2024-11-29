@@ -23,6 +23,7 @@ const config = {
         playfairBold: ['var(--font-playfairBold)', 'sans-serif'],
         playfairThin: ['var(--font-playfairThin)', 'sans-serif'],
         inter: ['var(--font-inter)', 'sans-serif'],
+        interThin: ['var(--font-interThin)', 'sans-serif'],
         herrVon: ['var(--font-herrVon)', 'sans-serif'],
       },
       maxWidth: {

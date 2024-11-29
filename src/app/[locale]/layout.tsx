@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Nav } from "@/components/layout/navNew";
 import { Footer } from "@/components/layout/footer";
-import { herrVon, inter, playfairBold, playfairThin } from "@/utils/fonts";
+import { herrvon, inter, interthin, playfairbold, playfairthin } from "@/utils/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${playfairBold.variable} ${playfairThin.variable} ${inter.variable} ${herrVon.variable}`}>
+      <body className={`${playfairbold.variable} ${playfairthin.variable} ${inter.variable} ${interthin.variable} ${herrvon.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
             <div className="top-0 z-50">

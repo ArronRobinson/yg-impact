@@ -16,7 +16,7 @@ export const Content = () => {
             {t('title')} <br />
             {t('subtitle')} <br />
         </h1>
-        <h2 className="font-inter text-2xl md:text-4xl">
+        <h2 className="font-interThin text-2xl md:text-4xl">
             {t('event')} <br />
         </h2>
         <p className="font-inter mt-8 md:mt-24 mb-12 md:mb-48 text-base md:text-lg">
