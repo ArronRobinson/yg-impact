@@ -8,7 +8,8 @@
     "about": "about",
     "contact": "contact",
     "projectpage": "SEE MY PROJECTS",
-    "projectpage2": "SHOW MORE"
+    "projectpage2": "SHOW MORE",
+    "events": "Recent Events"
 
   },
 
@@ -19,7 +20,7 @@
   },
 
   "projects": {
-    "title": "PAST EVENTS"
+    "title": "EVENTS"
   },
   
   "content": {

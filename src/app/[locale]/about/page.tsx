@@ -9,7 +9,7 @@ export default function About(){
     const t = useTranslations("about")
 
     return(
-        <main>
+        <main className="text-bgFoot">
             <div className="flex justify-center bg-gray-100 px-6">
                 <Content />    
             </div>

@@ -10,11 +10,13 @@ export default function Home() {
 
   return (
     <>
-      <main className="w-full bg-bgDefault flex flex-col relative items-center">
-        <div className="w-full bg-gray-100 flex justify-center">
+      <main className="w-full bg-bgDefault flex flex-col relative items-center text-bgFoot">
+        
+        <div className="w-full bg-gray-100 flex justify-center px-6">
           <Content />  
         </div>
-        <div className="mb-6 mt-32 max-w-7xl flex">
+        <div className="mb-6 mt-32 max-w-7xl flex flex-col">
+          <h1 className="font-playfairThin text-5xl pb-8">{t("events")}</h1>
           <InstaList />
         </div>
         <div>

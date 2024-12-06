@@ -10,7 +10,7 @@ export const Content = () => {
     const t = useTranslations("content");
 
     return (
-    <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 p-4 md:p-0 mt-12 md:mt-48 mb-12 md:mb-48 gap-y-12 md:gap-y-12">
+    <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 p-4 md:p-0 mt-12 md:mt-48 mb-12 md:mb-48 gap-y-12 md:gap-y-12 text-bgFoot">
       <div>
         <h1 className="font-playfairThin text-4xl md:text-7xl">
             {t('title')} <br />

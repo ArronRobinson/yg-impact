@@ -10,7 +10,7 @@ export default function Projects(){
 
     return(
         <main className="flex min-h-screen flex-col items-center justify-center ">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl px-6">
                 <h1 className="font-playfairThin text-6xl pt-24 pb-12">{t("title")}</h1>
                 <InstaList/>  
             </div>

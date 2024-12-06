@@ -68,7 +68,7 @@ export default function ContactForm() {
           placeholder="Full Name"
           value={formData.fullName}
           onChange={handleChange}
-          className="p-2 border-b border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full sm:w-1/2"
+          className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
           required
         />
         <input
@@ -77,7 +77,7 @@ export default function ContactForm() {
           placeholder="E-mail"
           value={formData.email}
           onChange={handleChange}
-          className="p-2 border-b border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full sm:w-1/2"
+          className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
           required
         />
       </div>
@@ -88,7 +88,7 @@ export default function ContactForm() {
         placeholder="Message"
         value={formData.message}
         onChange={handleChange}
-        className="p-2 border-b border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full"
+        className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full"
         rows={5}
         required
       />
@@ -96,7 +96,7 @@ export default function ContactForm() {
       <div>
         <button
           type="submit"
-          className="px-6 py-2 border border-black text-black rounded-full hover:bg-gray-100"
+          className="px-6 py-2 border border-opacity-30 border-black text-black rounded-full hover:bg-gray-100"
         >
           Versturen
         </button>
