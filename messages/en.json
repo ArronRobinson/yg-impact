@@ -37,5 +37,16 @@
     "title": "My name is",
     "name": "Ylenia Guerrini",
     "titleText": " een ervaren internationale organisator met meer dan 10 jaar ervaring in de evenementen- en productiewereld, weet ik precies wat er nodig is om een evenement of productie tot in de kleinste details te laten slagen. Of het nu gaat om het organiseren van een grootschalig evenement of het beheren van een kleinschalige productie, ik zorg ervoor dat alles vlekkeloos verloopt."
+  },
+
+  "contact": {
+    "title": "Lets create a \nmemorable event together!",
+    "sending": "Message Sending",
+    "sendingdis": "Your message is being processed...",
+    "sent": "Message Sent",
+    "sentdis": "Your message has succesfully been sent!",
+    "submit":"Submit",
+    "name": "Full Name",
+    "message": "Message"
   }
 }

@@ -45,5 +45,16 @@
     "accordContent3": "Een vlekkeloze uitvoering van het podiumprogramma is essentieel voor elk evenement. Als stagemanager ben ik degene die ervoor zorgt dat het podium draait als een geoliede machine. Van artist handling tot het coördineren van optredens en technische faciliteiten, ik zorg dat elk onderdeel van het programma volgens planning verloopt. \nMet mijn ervaring in de dance- en cultuursector weet ik hoe belangrijk het is om overzicht te houden in een dynamische en vaak hectische omgeving. Ik werk nauw samen met technici, artiesten en andere betrokkenen om te garanderen dat iedereen weet wat er verwacht wordt en wanneer. Of het nu gaat om last-minute aanpassingen of strakke time management, ik ben de schakel tussen de verschillende partijen. \nMijn focus ligt op duidelijke communicatie, flexibiliteit en het oplossen van onverwachte situaties, zodat het publiek én de artiesten optimaal kunnen genieten. Stagemanagement is niet alleen coördinatie; het is ervoor zorgen dat de magie op het podium zonder haperingen overkomt op het publiek.",
     "link":"Contact",
     "bio":"Naast mijn werk als freelancer in evenementen en producties, geef ik ook les. Ik ben goed in het begeleiden en motiveren van jongvolwassenen, en ik deel mijn kennis en passie graag met de nieuwe generatie professionals. Met een breed scala aan succesvolle projecten op mijn naam, biedt mijn ervaring en toewijding de perfecte basis om jouw evenement naar een hoger niveau te tillen. Ik luister, ik denk mee en ik creëer samen met jou een onvergetelijke ervaring."
+  },
+
+  "contact": {
+    "title": "Samen jouw event \nonvergetelijk maken?",
+    "sending": "Bericht Versturen",
+    "sendingdis": "Bericht is aan het versturen...",
+    "sent": "Bericht Verzonden",
+    "sentdis": "Uw bericht is met succes verzonden!",
+    "submit": "Versturen",
+    "name": "Volledige Naam",
+    "message": "Bericht"
   }
 }

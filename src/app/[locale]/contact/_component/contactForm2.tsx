@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { useToast } from "@/hooks/use-toast"
+import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     message: "",
   });
+
+  const t = useTranslations("contact");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,33 +32,51 @@ export default function ContactForm() {
 
     // Validate email
     if (!isValidEmail(formData.email)) {
-      alert("Invalid email address. Please try again."); // Alert instead of toast
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
       return;
     }
 
     const templateParams = {
-      from_name: formData.fullName, // Corresponds to {{from_name}}
-      from_email: formData.email, // Corresponds to {{from_email}}
-      message: formData.message, // Corresponds to {{message}}
-      to_name: "Ylenia", // Corresponds to {{to_name}}
+      from_name: formData.fullName,
+      from_email: formData.email,
+      message: formData.message,
+      to_name: "Ylenia",
     };
+
+    // Show loading toast
+    toast({
+      title: String(t("sending")),
+      description: String(t("sendingdis")),
+    });
 
     emailjs
       .send(
-        "service_uu1i67a", // Service ID from EmailJS dashboard
-        "template_38x5wbe", // Template ID from EmailJS dashboard
+        "service_uu1i67a",
+        "template_38x5wbe",
         templateParams,
-        "DWCFF62dyVvYNtsW1" // User ID from EmailJS dashboard
+        "DWCFF62dyVvYNtsW1"
       )
       .then(
         (response) => {
-          console.log("Email sent successfully:", response);
-          alert("Your message has been sent successfully!"); // Alert instead of toast
-          setFormData({ fullName: "", email: "", message: "" }); // Clear the form
+          toast({
+            title: String(t("sent")),
+            description: String(t("sentdis")),
+            variant: "default",
+          });
+          
+          // Clear the form
+          setFormData({ fullName: "", email: "", message: "" });
         },
         (error) => {
-          console.log("Email sending failed:", error);
-          alert("There was an error sending your message. Please try again."); // Alert instead of toast
+          toast({
+            title: "Error",
+            description: "There was an error sending your message. Please try again.",
+            variant: "destructive",
+          });
         }
       );
   };
@@ -65,7 +88,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="fullName"
-          placeholder="Full Name"
+          placeholder={t("name")}
           value={formData.fullName}
           onChange={handleChange}
           className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
@@ -85,7 +108,7 @@ export default function ContactForm() {
       {/* Message field */}
       <textarea
         name="message"
-        placeholder="Message"
+        placeholder={t("message")}
         value={formData.message}
         onChange={handleChange}
         className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full"
@@ -98,7 +121,7 @@ export default function ContactForm() {
           type="submit"
           className="px-6 py-2 border border-opacity-30 border-black text-black rounded-full hover:bg-gray-100"
         >
-          Versturen
+          {t("submit")}
         </button>
       </div>
     </form>

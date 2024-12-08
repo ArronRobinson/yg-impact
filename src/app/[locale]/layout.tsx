@@ -5,6 +5,8 @@ import { Nav } from "@/components/layout/navNew";
 import { Footer } from "@/components/layout/footer";
 import { herrvon, inter, interthin, playfairbold, playfairthin } from "@/utils/fonts";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
+
 
 export const metadata: Metadata = {
   title: "Portfolio - insta",
@@ -22,6 +24,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${playfairbold.variable} ${playfairthin.variable} ${inter.variable} ${interthin.variable} ${herrvon.variable}`}>
         <NextIntlClientProvider messages={messages}>
+        <Toaster />
           <div className="flex flex-col min-h-screen">
             <div className="top-0 z-50">
               <Nav />
