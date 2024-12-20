@@ -1,6 +1,7 @@
 import { getInstagramFeed, getPostById } from "@/utils/instaFeed";
 import { Video } from "./video";
 import { Image } from "./image";
+// import "./InstaList.css"; // Import your CSS file
 
 export async function InstaList() {
   // Fetch the posts
@@ -14,17 +15,25 @@ export async function InstaList() {
         const carouselItems = await getPostById(post.id);
 
         return carouselItems.map((item) => (
-          item.media_type === "VIDEO" ? (
-            <Video src={item.media_url} key={item.id} />
-          ) : (
-            <Image src={item.media_url} key={item.id} />
-          )
+          <div className="post-container" key={item.id}>
+            {item.media_type === "VIDEO" ? (
+              <Video src={item.media_url} />
+            ) : (
+              <Image src={item.media_url} />
+            )}
+            <div className="caption">{post.caption}</div>
+          </div>
         ));
       } else {
-        return post.media_type === "VIDEO" ? (
-          <Video src={post.media_url} key={key} />
-        ) : (
-          <Image src={post.media_url} key={key} />
+        return (
+          <div className="post-container" key={key}>
+            {post.media_type === "VIDEO" ? (
+              <Video src={post.media_url} />
+            ) : (
+              <Image src={post.media_url} />
+            )}
+            <div className="caption">{post.caption}</div>
+          </div>
         );
       }
     })

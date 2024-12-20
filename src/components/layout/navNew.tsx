@@ -4,7 +4,7 @@ import { Link, usePathname } from "@/navigation";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
 import LocalSwitcher from "../ui/localSwitcher";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import banner from '../../../public/images/pic4.jpg';
@@ -12,7 +12,8 @@ import banner from '../../../public/images/pic4.jpg';
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isVisible, setIsVisible] = useState<boolean>(false); // New state for visibility
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   const path = usePathname();
   const t = useTranslations("nav");
@@ -25,110 +26,131 @@ export function Nav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      if (bannerRef.current) {
+        const bannerBottom = bannerRef.current.getBoundingClientRect().bottom;
+        setIsScrolled(bannerBottom <= 0);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // Set visibility to true when the component is mounted
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   return (
-    <div className={`relative h-[90vh] w-full ${isScrolled ? "shadow-sm" : ""}`}>
-      {/* Background Image */}
-      <Image
-        src={banner}
-        alt="Banner"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-        className="absolute inset-0 z-0"
-      />
-      
-      {/* Dark Overlay for Image */}
-      <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
+    <>
+      {/* Fixed Controls */}
+      <div className="fixed top-8 left-8 z-50">
+        <div className={isScrolled ? 'text-bgFoot' : 'text-white'}>
+          <LocalSwitcher />
+        </div>
+      </div>
+      <div className="fixed top-8 right-8 z-50">
+        <button
+          onClick={toggleMenu}
+          aria-label="Toggle Menu"
+          className="relative"
+        >
+          {menuOpen ? (
+            <HiX size={35} className="text-bgFoot" />
+          ) : (
+            <HiMenu size={35} className={isScrolled ? 'text-bgFoot' : 'text-white'} />
+          )}
+        </button>
+      </div>
 
-      {/* Navigation Content */}
-      <div className="relative z-50 bg-transparent">
-        <div className="relative flex items-center justify-center pt-12 pb-12 pl-6 pr-6">
-          <div className="absolute left-8 flex items-center h-full">
-            <LocalSwitcher />
-          </div>
-          <div className="absolute right-8 flex items-center h-full">
-            <button
-              onClick={toggleMenu}
-              aria-label="Toggle Menu"
-              className="z-50 relative"
-            >
-              {menuOpen ? <HiX size={35} className="text-black" /> : <HiMenu size={35} className="text-white" />}
-            </button>
-          </div>
-          <a href="/" className="flex items-center">
-            <h1 className="font-playfairBold text-4xl text-white">
+      {/* Main Banner Section */}
+      <div 
+        ref={bannerRef}
+        className={`relative w-full ${isScrolled ? "shadow-sm" : ""}`} 
+        style={{ aspectRatio: '18/9' }}
+      >
+        <Image
+          src={banner}
+          alt="Banner"
+          fill
+          priority
+          sizes="100vw"
+          quality={100}
+          className="absolute inset-0 z-0 object-cover object-center"
+          style={{ objectPosition: '50% 50%' }}
+        />
+        
+        <div className="absolute inset-0 bg-bgFoot opacity-40 z-10"></div>
+
+        {/* Title */}
+        <div className="absolute top-8 left-0 right-0 flex justify-center z-20">
+          <Link href="/">
+            <h1 className="font-playfairBold text-4xl text-white hover:opacity-80 transition-opacity duration-200">
               <span className="text-white">YG</span> IMPACT
             </h1>
-          </a>
-          {/* Overlay Menu */}
-          <div className={`fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={toggleMenu}>
-          </div>
-          <nav className={`fixed inset-y-0 right-0 z-40 w-1/3 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
-            <Link href="/" onClick={handleMenuItemClick}>
-              <Button
-                className={`${path === "/" ? "before:scale-x-100" : ""} `}
-                variant="link"
-              >
-                {t("home")}
-              </Button>
-            </Link>
-            <Link href="/projects" onClick={handleMenuItemClick}>
-              <Button
-                className={`${path === "/projects" ? "before:scale-x-100" : ""} `}
-                variant="link"
-              >
-                {t("projects")}
-              </Button>
-            </Link>
-            <Link href="/about" onClick={handleMenuItemClick}>
-              <Button
-                className={`${path === "/about" ? "before:scale-x-100" : ""} `}
-                variant="link"
-              >
-                {t("about")}
-              </Button>
-            </Link>
-            <Link href="/contact" onClick={handleMenuItemClick}>
-              <Button
-                className={`${path === "/contact" ? "before:scale-x-100" : ""} `}
-                variant="link"
-              >
-                {t("contact")}
-              </Button>
-            </Link>
-          </nav>
+          </Link>
         </div>
-      </div>
 
-      {/* Conditionally Rendered Centered Text and Button at Bottom */}
-      <div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-        style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }} // Slide-up and fade-in transition
-      >
-        <div className="text-white font-playfairBold text-7xl">
-          <span className="text-white">YG</span> IMPACT
+        {/* Overlay Menu */}
+        <div className={`fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ${
+          menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`} onClick={toggleMenu}>
         </div>
-        <Link href="/projects">
-          <Button className="mt-12 mb-14 px-12 py-6 bg-gold text-white text-xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
-            {t("projectpage")}
-          </Button>
-        </Link>
+        <nav className={`fixed inset-y-0 right-0 z-40 w-1/3 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}>
+          <Link href="/" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("home")}
+            </Button>
+          </Link>
+          <Link href="/projects" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/projects" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("projects")}
+            </Button>
+          </Link>
+          <Link href="/about" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/about" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("about")}
+            </Button>
+          </Link>
+          <Link href="/contact" onClick={handleMenuItemClick}>
+            <Button
+              className={`${path === "/contact" ? "before:scale-x-100" : ""} `}
+              variant="link"
+            >
+              {t("contact")}
+            </Button>
+          </Link>
+        </nav>
+
+        {/* Centered Text and Button */}
+        <div
+          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}
+          style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }}
+        >
+          <div className="text-white font-playfairBold text-7xl md:text-7xl sm:text-5xl xs:text-4xl">
+            <span className="text-white">YG</span> IMPACT
+          </div>
+          <Link href="/projects">
+            <Button className="mt-12 mb-14 px-12 py-6 bg-gold text-white text-xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
+              {t("projectpage")}
+            </Button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

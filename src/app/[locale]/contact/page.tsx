@@ -6,8 +6,9 @@ export default function Contact() {
 
   // Define the keywords and their styles
   const keywords = [
-    { word: "memorable", style: "text-gold" },
-    { word: "onvergetelijk", style: "text-gold" }, // Add more as needed
+    { word: "unforgettable", style: "text-gold" },
+    { word: "onvergetelijk", style: "text-gold" },
+    { word: "indimenticabile", style: "text-gold" },
   ];
 
   // Function to render content with dynamic styling for keywords
@@ -32,7 +33,7 @@ export default function Contact() {
       <div className="h-[80vh] overflow-hidden flex flex-col items-center md:flex-row justify-evenly px-6">
         {/* Left Section */}
         <div className="text-left">
-          <h1 className="font-playfairThin text-7xl">GET IN TOUCH</h1>
+          <h1 className="font-playfairThin text-7xl">{renderContent(t("title1"))}</h1>
           <h2 className="font-inter text-3xl">{renderContent(t("title"))}</h2>
         </div>
 

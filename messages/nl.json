@@ -1,7 +1,4 @@
 {
-  "home": {
-    "title": "Hallo, wereld!"
-  },
   "nav": {
     "home": "Home",
     "projects": "Projecten",
@@ -10,12 +7,6 @@
     "projectpage": "BEKIJK MIJN PROJECTEN",
     "projectpage2": "BEKIJK MEER",
     "events": "Recente Evenementen"
-  },
-
-  "header": {
-    "title": "ONVERGETELIJKE",
-    "subtitle": "MOMENTEN",
-    "impact": "Met blijvende impact"
   },
 
   "projects": {
@@ -48,6 +39,7 @@
   },
 
   "contact": {
+    "title1": "GET IN TOUCH",
     "title": "Samen jouw event \nonvergetelijk maken?",
     "sending": "Bericht Versturen",
     "sendingdis": "Bericht is aan het versturen...",

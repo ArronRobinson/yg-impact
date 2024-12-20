@@ -1,7 +1,4 @@
 {
-  "home": {
-    "title": "Hello, world!"
-  },
   "nav":{
     "home": "home",
     "projects": "projects",
@@ -36,16 +33,26 @@
   "about": {
     "title": "My name is",
     "name": "Ylenia Guerrini",
-    "titleText": " een ervaren internationale organisator met meer dan 10 jaar ervaring in de evenementen- en productiewereld, weet ik precies wat er nodig is om een evenement of productie tot in de kleinste details te laten slagen. Of het nu gaat om het organiseren van een grootschalig evenement of het beheren van een kleinschalige productie, ik zorg ervoor dat alles vlekkeloos verloopt."
+    "titleText": "an experienced international organizer with over 10 years of experience in the world of events and production. I know exactly what it takes to make an event or production succeed down to the finest details. Whether it's organizing a large-scale event or managing a small-scale production, I ensure everything runs smoothly.",
+    "subText": "Driven, goal-oriented, and with a clear perspective on the big picture, I work with my clients to bring their dreams and wishes to life. Every production is unique, and I ensure each event is perfectly aligned with my client's vision and expectations.",
+    "accord1": "Event Management",
+    "accord2": "Stage Management",
+    "accord3": "Production Manager",
+    "accordContent1": "Whether you dream of an intimate wedding in the Italian vineyards or a grand corporate event, I am here to make it a reality. With years of experience organizing both large and small weddings, I ensure that you can fully enjoy your special day without worrying about a thing. Let go of the stress and live in the moment—I’ll handle the rest. \nMy Italian roots bring a touch of authentic culture and knowledge to every event. Do you want to get married among olive trees or with a view of the Tuscan hills? I know the perfect places and the right people to make your dream wedding a reality. \nIn addition, I have over 10 years of experience organizing various types of events, from corporate meetings to large-scale festivals in the dance and culture sectors. Whatever your event entails, I always work with a keen eye for detail and deliver at the highest level. I understand how important it is to convey the core of your message, and through creativity and strong communication, I ensure that your guests truly experience that message. \nAs a professional, I am communicative, driven, and solution-oriented. I’m a true team player who enjoys working closely with my clients to realize their vision. Whether you have a clear plan or need advice on developing the concept, I’m flexible and happy to collaborate with you to ensure the event is exactly how you envision it. With my extensive experience, personal approach, and love for the craft, I make sure every event runs not only flawlessly but also becomes an unforgettable experience.",
+    "accordContent2": "Do you want to be completely relieved of responsibilities on your big day? As an experienced production manager, I take the reins, so you can relax knowing everything will go smoothly. With my sharp eye for detail and years of experience, I know exactly which aspects need extra attention and how every part of your event integrates seamlessly. \nThrough a schedule, briefing, or personal meeting, I gain a clear understanding of the day’s proceedings. From that moment on, I take over, allowing you to focus on what’s important to you—whether that’s enjoying the moment or focusing on other tasks. \nOn the day itself, I am your point of contact, the leader behind the scenes, and the person ensuring that every link in the process flows seamlessly. Whether it’s artist handling, setting up the location, or overall coordination, I maintain oversight and ensure everything aligns perfectly.",
+    "accordContent3": "A flawless execution of the stage program is essential for any event. As a stage manager, I am the one who ensures the stage runs like a well-oiled machine. From artist handling to coordinating performances and technical facilities, I make sure every part of the program goes according to plan. \nWith my experience in the dance and culture sectors, I understand how important it is to maintain an overview in a dynamic and often hectic environment. I work closely with technicians, artists, and other stakeholders to ensure everyone knows what’s expected and when. Whether it’s last-minute changes or strict time management, I am the link between the various parties. \nMy focus is on clear communication, flexibility, and resolving unexpected situations, so that both the audience and the performers can enjoy the event to the fullest. Stage management is not just coordination; it’s ensuring that the magic on stage translates seamlessly to the audience.",
+    "link": "Contact",
+    "bio": "In addition to my work as a freelancer in events and productions, I also teach. I excel at guiding and motivating young adults and enjoy sharing my knowledge and passion with the next generation of professionals. With a wide range of successful projects under my belt, my experience and dedication provide the perfect foundation to elevate your event. I listen, think along with you, and create an unforgettable experience together with you."
   },
 
   "contact": {
-    "title": "Lets create a \nmemorable event together!",
-    "sending": "Message Sending",
-    "sendingdis": "Your message is being processed...",
+    "title1": "GET IN TOUCH",
+    "title": "Let's create your \nunforgettable event together!",
+    "sending": "Sending Message",
+    "sendingdis": "Message is being sent...",
     "sent": "Message Sent",
-    "sentdis": "Your message has succesfully been sent!",
-    "submit":"Submit",
+    "sentdis": "Your message has been successfully sent!",
+    "submit": "Send",
     "name": "Full Name",
     "message": "Message"
   }
