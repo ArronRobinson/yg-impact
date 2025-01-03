@@ -28,7 +28,8 @@ export function Nav() {
     const handleScroll = () => {
       if (bannerRef.current) {
         const bannerBottom = bannerRef.current.getBoundingClientRect().bottom;
-        setIsScrolled(bannerBottom <= 0);
+        const offset = 40;
+        setIsScrolled(bannerBottom <= offset);
       }
     };
 
@@ -86,8 +87,8 @@ export function Nav() {
         {/* Title */}
         <div className="absolute top-8 left-0 right-0 flex justify-center z-20">
           <Link href="/">
-            <h1 className="font-playfairBold text-4xl text-white hover:opacity-80 transition-opacity duration-200">
-              <span className="text-white">YG</span> IMPACT
+            <h1 className="font-playfairBold lg:text-4xl md:text-3xl sm:text-2xl text-white">
+              YG IMPACT
             </h1>
           </Link>
         </div>
@@ -97,7 +98,7 @@ export function Nav() {
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`} onClick={toggleMenu}>
         </div>
-        <nav className={`fixed inset-y-0 right-0 z-40 w-1/3 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${
+        <nav className={`fixed inset-y-0 right-0 z-40 w-full md:w-1/3 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
           <Link href="/" onClick={handleMenuItemClick}>
@@ -141,11 +142,11 @@ export function Nav() {
           }`}
           style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }}
         >
-          <div className="text-white font-playfairBold text-7xl md:text-7xl sm:text-5xl xs:text-4xl">
-            <span className="text-white">YG</span> IMPACT
+          <div className="text-white font-playfairBold text-[clamp(2rem,5vw,5rem)]">
+            YG IMPACT
           </div>
           <Link href="/projects">
-            <Button className="mt-12 mb-14 px-12 py-6 bg-gold text-white text-xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-[2vw] mb-[2vw] px-[3vw] py-[1.5vw] bg-gold text-white text-[max(1.5rem,1vw)] font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
               {t("projectpage")}
             </Button>
           </Link>

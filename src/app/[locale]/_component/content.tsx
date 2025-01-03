@@ -12,11 +12,11 @@ export const Content = () => {
     return (
     <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 p-4 md:p-0 mt-12 md:mt-48 mb-12 md:mb-48 gap-y-12 md:gap-y-12 text-bgFoot">
       <div>
-        <h1 className="font-playfairThin text-4xl md:text-7xl">
+        <h1 className="font-playfairThin sm:text-5xl md:text-6xl lg:text-7xl">
             {t('title')} <br />
             {t('subtitle')} <br />
         </h1>
-        <h2 className="font-interThin text-2xl md:text-4xl">
+        <h2 className="font-interThin sm:text-2xl md:text-3xl lg:text-4xl">
             {t('event')} <br />
         </h2>
         <p className="font-inter mt-8 md:mt-24 mb-12 md:mb-48 text-base md:text-lg">
@@ -56,7 +56,7 @@ export const Content = () => {
         />
       </div>
       <div className="mt-8 md:mt-0 flex flex-col justify-center items-center">
-        <p className="font-playfairThin text-base md:text-2xl italic text-center md:text-center">
+        <p className="font-playfairThin text-base sm:text-2xl md:text-2xl lg:text-2xl italic text-center md:text-center">
           &quot;{t("quote")}&quot;
         </p>
       </div>

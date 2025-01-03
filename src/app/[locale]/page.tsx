@@ -3,6 +3,7 @@ import { InstaList } from "@/components/layout/instaList2";
 import { Link, usePathname } from "@/navigation";
 import { Button } from "../../components/ui/button";
 import { useTranslations } from "next-intl";
+import { Nav } from "@/components/layout/navNew";
 
 export default function Home() {
 
@@ -10,8 +11,10 @@ export default function Home() {
 
   return (
     <>
+      <div className="top-0 z-50">
+        <Nav />
+      </div>
       <main className="w-full bg-bgDefault flex flex-col relative items-center text-bgFoot">
-        
         <div className="w-full bg-gray-100 flex justify-center px-6">
           <Content />  
         </div>

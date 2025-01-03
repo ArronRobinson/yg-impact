@@ -1,5 +1,6 @@
 import ContactForm from "./_component/contactForm2";
 import { useTranslations } from "next-intl";
+import { Nav } from "@/components/layout/navSimple";
 
 export default function Contact() {
   const t = useTranslations("contact");
@@ -15,8 +16,8 @@ export default function Contact() {
   const renderContent = (content: string) =>
     content.split("\n").map((line, index) => (
       <p key={index}>
-        {line.split(new RegExp(`(${keywords.map(k => k.word).join("|")})`)).map((part, i) => {
-          const keyword = keywords.find(k => k.word === part);
+        {line.split(new RegExp(`(${keywords.map((k) => k.word).join("|")})`)).map((part, i) => {
+          const keyword = keywords.find((k) => k.word === part);
           return keyword ? (
             <span key={i} className={keyword.style}>
               {part}
@@ -29,16 +30,22 @@ export default function Contact() {
     ));
 
   return (
-    <main className="h-[100vh]">
-      <div className="h-[80vh] overflow-hidden flex flex-col items-center md:flex-row justify-evenly px-6">
+    <main className="relative h-[100vh]">
+      {/* Navigation Bar */}
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <Nav />
+      </div>
+
+      {/* Main Content */}
+      <div className="h-[80vh] overflow-hidden flex flex-col items-start md:flex-row md:items-center justify-evenly px-6 pt-[5rem]">
         {/* Left Section */}
-        <div className="text-left">
+        <div className="text-left w-full md:w-auto">
           <h1 className="font-playfairThin text-7xl">{renderContent(t("title1"))}</h1>
           <h2 className="font-inter text-3xl">{renderContent(t("title"))}</h2>
         </div>
 
         {/* Right Section */}
-        <div className="mt-6">
+        <div className="mt-6 w-full md:w-auto">
           <ContactForm />
         </div>
       </div>

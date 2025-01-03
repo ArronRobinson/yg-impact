@@ -58,12 +58,12 @@ export const Content2 = () => {
           </div>
         </div>
       ))}
-      <div className="flex justify-between w-full mt-28 px-6">
+      {/* <div className="flex justify-between w-full mt-28 px-6">
         <div className="w-1/2 pr-8">
           <Image src={headshot} alt="Headshot" className="rounded-lg" />
         </div>
         <div className="w-1/2 pl-8 font-inter">{t("bio")}</div>
-      </div>
+      </div> */}
     </div>
   );
 };
