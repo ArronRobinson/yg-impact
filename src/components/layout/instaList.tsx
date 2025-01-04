@@ -1,7 +1,6 @@
 import { getInstagramFeed, getPostById } from "@/utils/instaFeed";
 import { Video } from "./video";
 import { Image } from "./image";
-// import "./InstaList.css"; // Import your CSS file
 
 export async function InstaList() {
   // Fetch the posts
