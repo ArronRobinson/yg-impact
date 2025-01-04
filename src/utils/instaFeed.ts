@@ -7,7 +7,7 @@ export interface post {
     timestamp: string
 }
 
-const baseUrl = "https://graph.instagram.com/v12.0";
+const baseUrl = "https://graph.instagram.com/v18.0";
 
 export async function getInstagramFeed(): Promise<post[]> {
     try {
