@@ -32,7 +32,7 @@ export function Footer() {
                             </Link>
                         </div>
                     </div>
-                    <div>
+                    <div className='order-3 md:order-none col-span-2 md:col-span-1 mt-6 md:mt-0 flex flex-col items-center '>
                         <h1 className='footer-heading text-lg md:text-xl mb-2 text-center font-playfairThin'>Socials</h1>
                         <div className='flex justify-center gap-3 md:gap-6'>
                             <a href='https://www.instagram.com/yg.impact/' className='icon-container'>
@@ -45,9 +45,9 @@ export function Footer() {
                     </div>
                     
                     {/* Get in touch section - centered on mobile, right-aligned on desktop */}
-                    <div className='col-span-2 mt-6 md:mt-0 md:col-span-1 flex flex-col items-center md:items-end'>
+                    <div className='flex flex-col items-end'>
                         <h1 className='footer-heading text-lg md:text-xl mb-2 font-playfairThin'>Get in touch</h1>
-                        <ul className='flex flex-col items-center md:items-end font-inter text-sm md:text-base'>
+                        <ul className='flex flex-col items-end font-inter text-sm md:text-base'>
                             <li>yg.impact.event@gmail.com</li>
                             <li>+31623141140</li>
                         </ul>
