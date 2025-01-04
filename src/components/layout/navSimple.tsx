@@ -40,7 +40,7 @@ export function Nav() {
         {/* Title */}
         <div className="absolute top-8 left-0 right-0 flex justify-center z-20">
           <Link href="/">
-            <h1 className="font-playfairBold text-4xl text-bgFoot">
+            <h1 className="font-playfairBold text-3xl md:text-4xl text-bgFoot">
               YG IMPACT
             </h1>
           </Link>
