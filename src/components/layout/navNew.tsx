@@ -7,7 +7,7 @@ import LocalSwitcher from "../ui/localSwitcher";
 import { useState, useEffect, useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
-import banner from '../../../public/images/pic4.jpg';
+import banner from '../../../public/images/pic44.jpg';
 
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -68,8 +68,7 @@ export function Nav() {
       {/* Main Banner Section */}
       <div 
         ref={bannerRef}
-        className={`relative w-full ${isScrolled ? "shadow-sm" : ""}`} 
-        style={{ aspectRatio: '18/9' }}
+        className="relative w-full h-[70svh] md:h-auto md:aspect-[18/9]"
       >
         <Image
           src={banner}
@@ -78,7 +77,7 @@ export function Nav() {
           priority
           sizes="100vw"
           quality={100}
-          className="absolute inset-0 z-0 object-cover object-center"
+          className="absolute inset-0 z-0 object-cover"
           style={{ objectPosition: '50% 50%' }}
         />
         
@@ -87,12 +86,13 @@ export function Nav() {
         {/* Title */}
         <div className="absolute top-8 left-0 right-0 flex justify-center z-20">
           <Link href="/">
-            <h1 className="font-playfairBold lg:text-4xl md:text-3xl sm:text-2xl text-white">
+            <h1 className="font-playfairBold text-2xl md:text-4xl text-white">
               YG IMPACT
             </h1>
           </Link>
         </div>
 
+        {/* Rest of the navigation components remain the same */}
         {/* Overlay Menu */}
         <div className={`fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ${
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -141,12 +141,12 @@ export function Nav() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}
           style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }}
-        >
-          <div className="text-white font-playfairBold text-[clamp(2rem,5vw,5rem)]">
+          >
+          <div className="text-white font-playfairBold text-4xl md:text-7xl">
             YG IMPACT
           </div>
           <Link href="/projects">
-            <Button className="mt-[2vw] mb-[2vw] px-[3vw] py-[1.5vw] bg-gold text-white text-[max(1.5rem,1vw)] font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-[2vw] mb-[2vw] px-[3vw] py-[1.5vw] bg-gold text-white text-lg md:text-2xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
               {t("projectpage")}
             </Button>
           </Link>
