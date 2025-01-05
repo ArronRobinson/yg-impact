@@ -36,7 +36,7 @@ export const Content = () => {
             width={500}
           />
         </div>
-        <div className="absolute top-60 md:right-[-50px] md:top-2/3 md:transform md:-translate-y-1/2">
+        <div className="absolute top-64 md:right-[-50px] md:top-2/3 md:transform md:-translate-y-1/2">
           <Image
             className="border-[12px] border-white drop-shadow-lg transform -rotate-6"
             src={pic8}
@@ -46,7 +46,7 @@ export const Content = () => {
           />
         </div>
       </div>
-      <div className="relative mt-32 flex justify-center md:justify-start md:mt-0">
+      <div className="relative mt-44 flex justify-center md:justify-start md:mt-0">
         <Image
           className="border-[12px] border-white drop-shadow-lg rotate-3"
           src={pic6}
@@ -56,7 +56,7 @@ export const Content = () => {
         />
       </div>
       <div className="mt-8 md:mt-0 flex flex-col justify-center items-center">
-        <p className="font-playfairThin text-base sm:text-2xl md:text-2xl lg:text-2xl italic text-center md:text-center">
+        <p className="font-inter text-base md:text-2xl italic text-center md:text-center">
           &quot;{t("quote")}&quot;
         </p>
       </div>
