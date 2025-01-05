@@ -68,7 +68,7 @@ export function Nav() {
       {/* Main Banner Section */}
       <div 
         ref={bannerRef}
-        className="relative w-full h-[80svh] md:h-auto md:aspect-[21/9]"
+        className="relative w-full h-[80svh] md:h-auto md:aspect-[20/9]"
       >
         <Image
           src={banner}

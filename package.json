@@ -27,6 +27,7 @@
     "framer-motion": "^11.3.30",
     "instafeed.js": "^2.0.0",
     "ionicons": "^7.4.0",
+    "lucide-react": "^0.469.0",
     "next": "^14.2.18",
     "next-intl": "^3.15.2",
     "nodemailer": "^6.9.14",

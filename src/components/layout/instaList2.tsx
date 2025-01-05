@@ -6,7 +6,7 @@ export async function InstaList() {
   try {
     // Fetch the posts
     const posts = await getInstagramFeed();
-    
+
     // Add null check before slicing
     if (!posts || !Array.isArray(posts)) {
       console.error('No posts returned or posts is not an array:', posts);
