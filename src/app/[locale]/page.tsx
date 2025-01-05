@@ -15,7 +15,7 @@ export default function Home() {
         <Nav />
       </div>
       <main className="w-full bg-bgDefault flex flex-col relative items-center text-bgFoot">
-        <div className="w-full bg-gray-100 flex justify-center px-6">
+        <div className="w-full bg-gray-100 flex justify-center px-6 pt-12">
           <Content />  
         </div>
         <div className="mb-6 mt-32 max-w-7xl flex flex-col">

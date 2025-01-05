@@ -17,7 +17,7 @@ export const Content = () => {
             <h1 className="font-playfairThin text-4xl md:text-7xl mb-4 text-center md:text-left">
               {t("title")}
             </h1>
-            <h2 className="font-playfairBold text-5xl md:text-8xl mb-4 text-center md:text-left">
+            <h2 className="font-playfairBold text-5xl md:text-8xl mb-4 text-center md:text-left whitespace-nowrap">
               {t("name")}
             </h2>
             <div className="max-w-2xl mx-auto md:mx-0">
