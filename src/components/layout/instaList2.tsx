@@ -55,7 +55,7 @@ export async function InstaList() {
     const filteredElements = postElements.filter(Boolean);
 
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 w-[70vw]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-[60vw] md:w-[70vw]">
         {filteredElements.length > 0 ? filteredElements : <div>No posts available</div>}
       </div>
     );

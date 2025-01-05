@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import headshot from "../../../../../public/images/pic14.jpg";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 export const Content2 = () => {
@@ -36,7 +34,7 @@ export const Content2 = () => {
         >
           <button
             onClick={() => toggleAccordion(index)}
-            className="w-full text-left text-4xl font-playfairThin py-4 px-6 focus:outline-none flex justify-between items-center"
+            className="w-full text-left text-3xl md:text-4xl font-playfairThin py-4 px-6 focus:outline-none flex justify-between items-center"
           >
             <span>{item.title}</span>
             <span className="h-6 w-6 text-bgFoot">
@@ -58,12 +56,6 @@ export const Content2 = () => {
           </div>
         </div>
       ))}
-      {/* <div className="flex justify-between w-full mt-28 px-6">
-        <div className="w-1/2 pr-8">
-          <Image src={headshot} alt="Headshot" className="rounded-lg" />
-        </div>
-        <div className="w-1/2 pl-8 font-inter">{t("bio")}</div>
-      </div> */}
     </div>
   );
 };

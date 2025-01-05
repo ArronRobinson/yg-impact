@@ -68,7 +68,7 @@ export function Nav() {
       {/* Main Banner Section */}
       <div 
         ref={bannerRef}
-        className="relative w-full h-[70svh] md:h-auto md:aspect-[18/9]"
+        className="relative w-full h-[80svh] md:h-auto md:aspect-[21/9]"
       >
         <Image
           src={banner}
@@ -142,11 +142,11 @@ export function Nav() {
           }`}
           style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }}
           >
-          <div className="text-white font-playfairBold text-4xl md:text-7xl">
+          <div className="text-white font-playfairBold text-5xl md:text-8xl whitespace-nowrap">
             YG IMPACT
           </div>
           <Link href="/projects">
-            <Button className="mt-[2vw] mb-[2vw] px-[3vw] py-[1.5vw] bg-gold text-white text-lg md:text-2xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-6 md:mt-10 mb-12 md:mb-18 px-8 md:px-10 py-4 md:py-6 bg-gold text-white text-lg md:text-2xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
               {t("projectpage")}
             </Button>
           </Link>

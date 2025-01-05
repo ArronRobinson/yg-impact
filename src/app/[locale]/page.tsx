@@ -19,12 +19,12 @@ export default function Home() {
           <Content />  
         </div>
         <div className="mb-6 mt-32 max-w-7xl flex flex-col">
-          <h1 className="font-playfairThin text-5xl pb-8">{t("events")}</h1>
+          <h1 className="font-playfairThin text-4xl md:text-5xl pb-8">{t("events")}</h1>
           <InstaList />
         </div>
         <div>
           <Link href="/projects">
-            <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-12 mb-20 px-12 py-6 bg-gold text-white text-lg md:text-xl font-inter rounded-full hover:bg-darkGold transition-colors duration-300">
               {t("projectpage2")}
             </Button>
           </Link>

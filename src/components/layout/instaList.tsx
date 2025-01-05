@@ -39,7 +39,7 @@ export async function InstaList() {
   );
 
   return (
-    <div className="grid grid-cols-1 max-w-7xl grid-cols-2 md:grid-cols-3 gap-5 mb-24">
+    <div className="grid grid-cols-1 max-w-7xl grid-cols-1 md:grid-cols-3 gap-5 mb-20">
       {postElements.flat()}
     </div>
   );

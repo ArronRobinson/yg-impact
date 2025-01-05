@@ -40,7 +40,7 @@ export default function Contact() {
       <div className="h-[80vh] overflow-hidden flex flex-col items-start md:flex-row md:items-center justify-evenly px-6 pt-[10rem]">
         {/* Left Section */}
         <div className="text-left w-full md:w-auto">
-          <h1 className="font-playfairThin text-5xl md:text-7xl">{renderContent(t("title1"))}</h1>
+          <h1 className="font-playfairThin text-5xl mb-2 md:text-7xl">{renderContent(t("title1"))}</h1>
           <h2 className="font-inter text-xl md:text-3xl">{renderContent(t("title"))}</h2>
         </div>
 

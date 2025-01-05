@@ -17,7 +17,7 @@ export default function Projects(){
                 <Nav />
             </div>
             <div className="max-w-7xl px-6 mt-32">
-                <h1 className="font-playfairThin text-6xl pt-24 pb-12">{t("title")}</h1>
+                <h1 className="font-playfairThin text-4xl md:text-6xl pt-24 pb-12">{t("title")}</h1>
                 <InstaList/>  
             </div>
             <div className="flex items-center justify-center pb-32">

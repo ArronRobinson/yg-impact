@@ -84,14 +84,14 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
       {/* Full Name and Email side by side */}
-      <div className="flex space-x-4">
+      <div className="md:flex md:space-x-4">
         <input
           type="text"
           name="fullName"
           placeholder={t("name")}
           value={formData.fullName}
           onChange={handleChange}
-          className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
+          className="mb-6 md:mb-0 p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
           required
         />
         <input
@@ -100,7 +100,7 @@ export default function ContactForm() {
           placeholder="E-mail"
           value={formData.email}
           onChange={handleChange}
-          className="p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
+          className="mb-6 md:mb-0 p-2 border-b border-opacity-30 border-black rounded-none focus:outline-none focus:border-b-2 focus:border-gray-500 w-full w-1/2"
           required
         />
       </div>
