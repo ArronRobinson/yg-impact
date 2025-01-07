@@ -1,9 +1,9 @@
 {
   "nav":{
-    "home": "home",
-    "projects": "projects",
-    "about": "about",
-    "contact": "contact",
+    "home": "Home",
+    "projects": "Events",
+    "about": "About",
+    "contact": "Contact",
     "projectpage": "SEE MY PROJECTS",
     "projectpage2": "SHOW MORE",
     "events": "Recent Events"

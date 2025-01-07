@@ -33,19 +33,30 @@ export async function InstaList() {
             const firstItem = carouselItems[0];
 
             return firstItem.media_type === "VIDEO" ? (
-              <Video src={firstItem.media_url} key={post.id} />
+              <div className="post-container" key={post.id}>
+                <Video src={firstItem.media_url} />
+                <div className="caption">{post.caption}</div>
+              </div>
             ) : (
-              <Image src={firstItem.media_url} key={post.id} />
+              <div className="post-container" key={post.id}>
+                <Image src={firstItem.media_url} />
+                <div className="caption">{post.caption}</div>
+              </div>
             );
           } catch (error) {
             console.error('Error fetching carousel item:', error);
             return null;
           }
         } else {
-          return post.media_type === "VIDEO" ? (
-            <Video src={post.media_url} key={post.id} />
-          ) : (
-            <Image src={post.media_url} key={post.id} />
+          return (
+            <div className="post-container" key={key}>
+              {post.media_type === "VIDEO" ? (
+                <Video src={post.media_url} />
+              ) : (
+                <Image src={post.media_url} />
+              )}
+              <div className="caption">{post.caption}</div>
+            </div>
           );
         }
       })

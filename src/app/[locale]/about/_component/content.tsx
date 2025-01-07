@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import pic8 from "../../../../../public/images/pic14.jpg";
+import pic8 from "../../../../../public/images/ylenia2.jpg";
 
 export const Content = () => {
   const t = useTranslations("about");
