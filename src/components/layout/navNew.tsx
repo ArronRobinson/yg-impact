@@ -47,7 +47,7 @@ export function Nav() {
     <>
       {/* Fixed Controls */}
       <div className="fixed top-8 left-8 z-50">
-        <div className={isScrolled ? 'text-bgFoot' : 'text-white'}>
+        <div className={isScrolled ? 'text-bgFoot' : 'text-white'} >
           <LocalSwitcher />
         </div>
       </div>
@@ -58,9 +58,9 @@ export function Nav() {
           className="relative"
         >
           {menuOpen ? (
-            <HiX size={35} className="text-bgFoot" />
+            <HiX className="text-bgFoot h-[30px] w-[30px] md:h-[35px] md:w-[35px]" />
           ) : (
-            <HiMenu size={35} className={isScrolled ? 'text-bgFoot' : 'text-white'} />
+            <HiMenu className={`${isScrolled ? 'text-bgFoot' : 'text-white'} h-[30px] w-[30px] md:h-[35px] md:w-[35px]`} />
           )}
         </button>
       </div>
@@ -146,7 +146,7 @@ export function Nav() {
             YG IMPACT
           </div>
           <Link href="/projects">
-            <Button className="mt-6 md:mt-10 mb-12 md:mb-18 px-8 md:px-10 py-4 md:py-6 bg-gold text-white text-lg md:text-2xl font-interThin rounded-full hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-6 md:mt-10 mb-12 md:mb-18 px-8 md:px-10 py-4 md:py-6 bg-gold text-white text-lg md:text-2xl rounded-full font-interThin hover:bg-darkGold transition-colors duration-300">
               {t("projectpage")}
             </Button>
           </Link>

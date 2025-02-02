@@ -20,21 +20,13 @@ export default function LocalSwitcher(){
 
     return(
     <>
-        {/* <label className="border-2 rounded ">
-            <p className="sr-only">change language</p>
-            <select className="bg-porselein" defaultValue={localActive} onChange={onSelectChange} disabled={isPending}>
-                <option value="en">🇬🇧</option>
-                <option value="nl">🇳🇱</option>
-            </select>
-        </label> */}
         <Select defaultValue={localActive} onValueChange={onSelectChange}>
-            <SelectTrigger className="rounded-3xl text-xs">
+            <SelectTrigger className="rounded-3xl text-[10px] md:text-[12px] h-6 md:h-9 px-2 md:px-3">
                 <SelectValue placeholder="Language" />
             </SelectTrigger>
             <SelectContent>
                 <SelectItem value="en">EN</SelectItem>
                 <SelectItem value="nl">NL</SelectItem>
-                <SelectItem value="it">IT</SelectItem>
             </SelectContent>
         </Select>
     </>)

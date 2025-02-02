@@ -25,9 +25,6 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
         <Toaster />
           <div className="flex flex-col min-h-screen">
-            {/* <div className="top-0 z-50">
-              <Nav />
-            </div> */}
             <main className="flex-grow"> {children}</main>
             <Footer />
           </div>
