@@ -142,11 +142,11 @@ export function Nav() {
           }`}
           style={{ transition: 'opacity 1s ease-in-out, transform 1s ease-in-out' }}
           >
-          <div className="text-white font-playfairBold text-5xl md:text-8xl whitespace-nowrap">
+          <div className="text-white font-playfairBold text-5xl md:text-7xl whitespace-nowrap">
             YG IMPACT
           </div>
           <Link href="/projects">
-            <Button className="mt-6 md:mt-10 mb-12 md:mb-18 px-8 md:px-10 py-4 md:py-6 bg-gold text-white text-lg md:text-2xl rounded-full font-interThin hover:bg-darkGold transition-colors duration-300">
+            <Button className="mt-6 md:mt-10 mb-12 md:mb-18 px-6 md:px-8 py-4 md:py-6 bg-gold text-white text-base md:text-xl rounded-full font-interThin hover:bg-darkGold transition-colors duration-300">
               {t("projectpage")}
             </Button>
           </Link>
