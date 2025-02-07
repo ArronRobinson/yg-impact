@@ -1,77 +1,100 @@
+import React from 'react';
 import { getInstagramFeed, getPostById } from "@/utils/instaFeed";
 import { Video } from "./video";
 import { Image } from "./image";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export async function InstaList() {
   try {
-    // Fetch the posts
     const posts = await getInstagramFeed();
 
-    // Add null check before slicing
     if (!posts || !Array.isArray(posts)) {
-      console.error('No posts returned or posts is not an array:', posts);
       return <div>No posts available</div>;
     }
 
-    // Slice to get only the first 3 posts
     const limitedPosts = posts.slice(0, 3);
 
-    // Map the posts to elements
     const postElements = await Promise.all(
-      limitedPosts.map(async (post, key) => {
-        if (!post || !post.id) {
-          return null;
-        }
+      limitedPosts.map(async (post) => {
+        if (!post?.id) return null;
 
         if (post.media_type === "CAROUSEL_ALBUM") {
           try {
-            // Fetch the first item from the carousel
             const carouselItems = await getPostById(post.id);
-            if (!carouselItems || !carouselItems[0]) {
-              return null;
-            }
+            if (!carouselItems?.[0]) return null;
             const firstItem = carouselItems[0];
 
-            return firstItem.media_type === "VIDEO" ? (
-              <div className="post-container" key={post.id}>
-                <Video src={firstItem.media_url} />
-                <div className="caption">{post.caption}</div>
-              </div>
-            ) : (
-              <div className="post-container" key={post.id}>
-                <Image src={firstItem.media_url} />
-                <div className="caption">{post.caption}</div>
-              </div>
+            return (
+              <Card key={post.id} className="w-full">
+                <CardContent className="p-0">
+                  <div className="aspect-square relative">
+                    {firstItem.media_type === "VIDEO" ? (
+                      <Video src={firstItem.media_url} />
+                    ) : (
+                      <Image src={firstItem.media_url} />
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             );
           } catch (error) {
-            console.error('Error fetching carousel item:', error);
+            console.error("Error fetching carousel item:", error);
             return null;
           }
-        } else {
-          return (
-            <div className="post-container" key={key}>
-              {post.media_type === "VIDEO" ? (
-                <Video src={post.media_url} />
-              ) : (
-                <Image src={post.media_url} />
-              )}
-              <div className="caption">{post.caption}</div>
-            </div>
-          );
         }
+
+        return (
+          <Card key={post.id} className="w-full">
+            <CardContent className="p-0">
+              <div className="aspect-square relative">
+                {post.media_type === "VIDEO" ? (
+                  <Video src={post.media_url} />
+                ) : (
+                  <Image src={post.media_url} />
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        );
       })
     );
 
-    // Filter out any null elements
     const filteredElements = postElements.filter(Boolean);
 
     return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-[60vw] md:w-[70vw]">
-        {filteredElements.length > 0 ? filteredElements : <div>No posts available</div>}
+      <div className="w-full max-w-7xl mx-auto px-4">
+        {/* Mobile: Show Carousel */}
+        <div className="block md:hidden overflow-hidden">
+          <Carousel className="w-full">
+            <CarouselContent className="w-full max-w-full">
+              {filteredElements.length > 0 ? filteredElements.map((post, index) => (
+                <CarouselItem key={index} className="w-full">
+                  {post}
+                </CarouselItem>
+              )) : <div>No posts available</div>}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
+        </div>
+
+        {/* Desktop: Show Responsive Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredElements.length > 0 ? filteredElements : <div>No posts available</div>}
+        </div>
       </div>
     );
   } catch (error) {
-    console.error('Error in InstaList:', error);
+    console.error("Error in InstaCarousel:", error);
     return <div>Error loading posts</div>;
   }
 }
+
+export default InstaList;

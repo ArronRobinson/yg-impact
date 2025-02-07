@@ -18,7 +18,7 @@ export default function Home() {
         <div className="w-full bg-gray-100 flex justify-center px-6 pt-12">
           <Content />  
         </div>
-        <div className="mb-6 mt-32 max-w-7xl flex flex-col">
+        <div className="mb-6 mt-32 flex flex-col">
           <h1 className="font-playfairThin text-4xl md:text-5xl pb-8">{t("events")}</h1>
           <InstaList />
         </div>
