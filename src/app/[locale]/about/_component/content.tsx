@@ -14,14 +14,14 @@ export const Content = () => {
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Main text block */}
           <div className="flex-1 w-full md:w-auto">
-            <h1 className="font-playfairThin text-4xl md:text-7xl mb-4 text-center md:text-left">
+            <h1 className="font-playfairThin text-4xl md:text-7xl mb-4 text-center">
               {t("title")}
             </h1>
             <h2 className="font-playfairBold text-5xl md:text-8xl mb-4 text-center md:text-left whitespace-nowrap">
               {t("name")}
             </h2>
             <div className="max-w-2xl mx-auto md:mx-0">
-              <p className="text-base md:text-lg text-center md:text-left">
+              <p className="text-base font-inter md:text-lg text-center md:text-left">
                 {t("titleText")}
               </p>  
             </div>
