@@ -86,7 +86,7 @@ export async function InstaList() {
         </div>
 
         {/* Desktop: Show Responsive Grid */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
           {filteredElements.length > 0 ? filteredElements : <div>No posts available</div>}
         </div>
       </div>

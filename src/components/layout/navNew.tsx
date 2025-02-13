@@ -98,7 +98,7 @@ export function Nav() {
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`} onClick={toggleMenu}>
         </div>
-        <nav className={`fixed inset-y-0 right-0 z-40 w-full md:w-1/3 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${
+        <nav className={`fixed inset-y-0 right-0 z-40 w-full md:w-1/4 bg-white flex flex-col justify-center items-center gap-20 transition-transform duration-300 transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
           <Link href="/" onClick={handleMenuItemClick}>

@@ -14,7 +14,7 @@ export default function About(){
             <div className="absolute top-0 left-0 right-0 z-50 ">
                 <Nav />
             </div>
-            <div className="flex justify-center px-6 mt-32">
+            <div className="flex justify-center px-6 mt-32 mb-24">
                 <Content />    
             </div>
             <div className="bg-gray-50">

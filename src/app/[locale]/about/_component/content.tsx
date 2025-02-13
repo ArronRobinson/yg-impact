@@ -7,7 +7,7 @@ export const Content = () => {
   const t = useTranslations("about");
 
   return (
-    <div className="w-full max-w-7xl mx-auto min-h-screen px-4 py-12">
+    <div className="w-full max-w-7xl mx-auto px-4 py-12">
       {/* Main content wrapper with flex layout */}
       <div className="flex flex-col space-y-32 md:space-y-40 ">
         {/* Top section with text and image side by side */}
