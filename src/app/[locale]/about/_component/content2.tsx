@@ -52,7 +52,7 @@ export const Content2 = () => {
                 : "max-h-0 opacity-0 py-0 px-6"
             }`}
           >
-            <div className="font-inter">{renderContent(item.content)}</div>
+            <div className="font-inter max-w-3xl">{renderContent(item.content)}</div>
           </div>
         </div>
       ))}

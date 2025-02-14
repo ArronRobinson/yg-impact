@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { getInstagramFeed, getPostById } from "@/utils/instaFeed";
 import { Video } from "./video";
 import { Image } from "./image2";
@@ -32,14 +32,18 @@ export async function InstaList() {
             const firstItem = carouselItems[0];
 
             return (
-              <Card key={post.id} className="w-full">
-                <CardContent className="p-0">
+              <Card key={post.id} className="w-full group overflow-hidden">
+                <CardContent className="p-0 relative">
                   <div className="aspect-square relative">
                     {firstItem.media_type === "VIDEO" ? (
                       <Video src={firstItem.media_url} />
                     ) : (
                       <Image src={firstItem.media_url} />
                     )}
+                    {/* Caption Overlay (Bottom Half) */}
+                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black bg-opacity-60 text-white flex items-center justify-center text-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      {post.caption || "No caption available"}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -51,14 +55,18 @@ export async function InstaList() {
         }
 
         return (
-          <Card key={post.id} className="w-full">
-            <CardContent className="p-0">
+          <Card key={post.id} className="w-full group overflow-hidden">
+            <CardContent className="p-0 relative">
               <div className="aspect-square relative">
                 {post.media_type === "VIDEO" ? (
                   <Video src={post.media_url} />
                 ) : (
                   <Image src={post.media_url} />
                 )}
+                {/* Caption Overlay (Bottom Half) */}
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black bg-opacity-60 text-white flex items-center justify-center text-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {post.caption || "No caption available"}
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -69,7 +77,7 @@ export async function InstaList() {
     const filteredElements = postElements.filter(Boolean);
 
     return (
-      <div className="w-full max-w-7xl mx-auto px-4">
+      <div className="w-full max-w-7xl mx-auto">
         {/* Mobile: Show Carousel */}
         <div className="block md:hidden overflow-hidden">
           <Carousel className="w-full">

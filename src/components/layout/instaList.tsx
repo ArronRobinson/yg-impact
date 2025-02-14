@@ -13,16 +13,21 @@ export async function InstaList() {
       if (post.media_type === "CAROUSEL_ALBUM") {
         const carouselItems = await getPostById(post.id);
 
-        return carouselItems.map((item) => (
-          <div className="post-container" key={item.id}>
-            {item.media_type === "VIDEO" ? (
-              <Video src={item.media_url} />
-            ) : (
-              <Image src={item.media_url} />
-            )}
-            <div className="caption">{post.caption}</div>
-          </div>
-        ));
+        // Ensure there's at least one item in the carousel
+        if (carouselItems?.length > 0) {
+          const firstItem = carouselItems[0]; // Get only the first item
+
+          return (
+            <div className="post-container" key={post.id}>
+              {firstItem.media_type === "VIDEO" ? (
+                <Video src={firstItem.media_url} />
+              ) : (
+                <Image src={firstItem.media_url} />
+              )}
+              <div className="caption">{post.caption}</div>
+            </div>
+          );
+        }
       } else {
         return (
           <div className="post-container" key={key}>
@@ -39,8 +44,8 @@ export async function InstaList() {
   );
 
   return (
-    <div className="grid grid-cols-1 max-w-7xl grid-cols-1 md:grid-cols-3 gap-5 mb-20">
-      {postElements.flat()}
+    <div className="grid grid-cols-1 max-w-7xl md:grid-cols-3 gap-5 mb-20">
+      {postElements.filter(Boolean)}
     </div>
   );
 }
