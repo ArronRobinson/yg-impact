@@ -22,7 +22,7 @@ export function Video({ src }: { src: string }) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="w-full aspect-square transition-transform transform hover:scale-105"
+      className="w-full aspect-square"
     >
       <video
         src={src}

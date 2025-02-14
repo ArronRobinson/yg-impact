@@ -1,7 +1,7 @@
 import React from 'react';
 import { getInstagramFeed, getPostById } from "@/utils/instaFeed";
 import { Video } from "./video";
-import { Image } from "./image";
+import { Image } from "./image2";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
