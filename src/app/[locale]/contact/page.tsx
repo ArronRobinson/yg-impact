@@ -38,10 +38,10 @@ export default function Contact() {
       <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-6 py-8 mt-16">
         {/* Left Section */}
         <div className="w-full md:w-1/2 max-w-xl">
-          <h1 className="font-playfairThin text-4xl md:text-7xl mb-2">
+          <h1 className="font-playfairThin text-5xl md:text-7xl mb-2">
             {renderContent(t("title1"))}
           </h1>
-          <h2 className="font-inter text-lg md:text-3xl">
+          <h2 className="font-inter text-xl md:text-3xl">
             {renderContent(t("title"))}
           </h2>
         </div>
