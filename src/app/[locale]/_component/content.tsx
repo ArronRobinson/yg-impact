@@ -56,7 +56,7 @@ export const Content = () => {
         />
       </div>
       <div className="mt-8 md:mt-0 flex flex-col justify-center items-center">
-        <p className="font-inter text-base md:text-2xl italic text-center md:text-center">
+        <p className="font-inter text-base md:text-xl italic text-center md:text-center">
           &quot;{t("quote")}&quot;
         </p>
       </div>
