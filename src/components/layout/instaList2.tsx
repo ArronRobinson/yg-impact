@@ -11,6 +11,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+const CaptionOverlay = ({ caption }: { caption: string }) => (
+  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black bg-opacity-60 text-white flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+    <p className="line-clamp-4 text-base md:text-base overflow-hidden">
+      {caption || "No caption available"}
+    </p>
+  </div>
+);
+
 export async function InstaList() {
   try {
     const posts = await getInstagramFeed();
@@ -40,10 +48,7 @@ export async function InstaList() {
                     ) : (
                       <Image src={firstItem.media_url} />
                     )}
-                    {/* Caption Overlay (Bottom Half) */}
-                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black bg-opacity-60 text-white flex items-center justify-center text-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      {post.caption || "No caption available"}
-                    </div>
+                    <CaptionOverlay caption={post.caption} />
                   </div>
                 </CardContent>
               </Card>
@@ -63,10 +68,7 @@ export async function InstaList() {
                 ) : (
                   <Image src={post.media_url} />
                 )}
-                {/* Caption Overlay (Bottom Half) */}
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black bg-opacity-60 text-white flex items-center justify-center text-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  {post.caption || "No caption available"}
-                </div>
+                <CaptionOverlay caption={post.caption} />
               </div>
             </CardContent>
           </Card>
