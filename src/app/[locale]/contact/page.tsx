@@ -5,14 +5,12 @@ import { Nav } from "@/components/layout/navSimple";
 export default function Contact() {
   const t = useTranslations("contact");
 
-  // Define the keywords and their styles
   const keywords = [
     { word: "unforgettable", style: "text-gold" },
     { word: "onvergetelijk", style: "text-gold" },
     { word: "indimenticabile", style: "text-gold" },
   ];
 
-  // Function to render content with dynamic styling for keywords
   const renderContent = (content: string) =>
     content.split("\n").map((line, index) => (
       <p key={index}>
@@ -30,25 +28,29 @@ export default function Contact() {
     ));
 
   return (
-    <main className="relative h-[100vh]">
+    <div className="min-h-screen flex flex-col">
       {/* Navigation Bar */}
-      <div className="absolute top-0 left-0 right-0 z-50">
+      <div className="top-0 z-50 bg-white">
         <Nav />
       </div>
 
       {/* Main Content */}
-      <div className="h-[80vh] overflow-hidden flex flex-col items-start md:flex-row md:items-center justify-evenly px-6 pt-[10rem]">
+      <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-6 py-8 mt-16">
         {/* Left Section */}
-        <div className="text-left w-full md:w-auto">
-          <h1 className="font-playfairThin text-5xl mb-2 md:text-7xl">{renderContent(t("title1"))}</h1>
-          <h2 className="font-inter text-xl md:text-3xl">{renderContent(t("title"))}</h2>
+        <div className="w-full md:w-1/2 max-w-xl">
+          <h1 className="font-playfairThin text-4xl md:text-7xl mb-2">
+            {renderContent(t("title1"))}
+          </h1>
+          <h2 className="font-inter text-lg md:text-3xl">
+            {renderContent(t("title"))}
+          </h2>
         </div>
 
         {/* Right Section */}
-        <div className="mt-6 w-full md:w-auto">
+        <div className="w-full md:w-1/2 max-w-xl">
           <ContactForm />
         </div>
       </div>
-    </main>
+    </div>
   );
 }
