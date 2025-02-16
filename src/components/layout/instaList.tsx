@@ -3,19 +3,16 @@ import { Video } from "./video";
 import { Image } from "./image";
 
 export async function InstaList() {
-  // Fetch the posts
-  const posts = await getInstagramFeed();
+  const posts = await getInstagramFeed(); // Cached by ISR (1 hour)
   console.log(posts);
 
-  // Use Promise.all to handle async operations before mapping
   const postElements = await Promise.all(
     posts.map(async (post, key) => {
       if (post.media_type === "CAROUSEL_ALBUM") {
         const carouselItems = await getPostById(post.id);
 
-        // Ensure there's at least one item in the carousel
         if (carouselItems?.length > 0) {
-          const firstItem = carouselItems[0]; // Get only the first item
+          const firstItem = carouselItems[0];
 
           return (
             <div className="post-container" key={post.id}>
