@@ -1,17 +1,28 @@
+// InstaList.tsx
 import React from "react";
 import { getInstagramFeed, getPostById } from "@/utils/instaFeed";
 import { Video } from "./video";
 import { Image } from "./image2";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { CarouselWrapper } from "./CarouselWrapper";
 
-const CaptionOverlay = ({ caption }: { caption: string }) => (
+interface CaptionOverlayProps {
+  caption: string;
+}
+
+interface InstagramPost {
+  id: string;
+  media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
+  media_url: string;
+  caption: string;
+}
+
+interface CarouselItemData {
+  media_type: "IMAGE" | "VIDEO";
+  media_url: string;
+}
+
+const CaptionOverlay: React.FC<CaptionOverlayProps> = ({ caption }) => (
   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black bg-opacity-60 text-white flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
     <p className="line-clamp-4 text-base md:text-base overflow-hidden">
       {caption || "No caption available"}
@@ -21,7 +32,7 @@ const CaptionOverlay = ({ caption }: { caption: string }) => (
 
 export async function InstaList() {
   try {
-    const posts = await getInstagramFeed();
+    const posts = await getInstagramFeed() as InstagramPost[];
 
     if (!posts || !Array.isArray(posts)) {
       return <div>No posts available</div>;
@@ -35,7 +46,7 @@ export async function InstaList() {
 
         if (post.media_type === "CAROUSEL_ALBUM") {
           try {
-            const carouselItems = await getPostById(post.id);
+            const carouselItems = await getPostById(post.id) as CarouselItemData[];
             if (!carouselItems?.[0]) return null;
             const firstItem = carouselItems[0];
 
@@ -76,23 +87,15 @@ export async function InstaList() {
       })
     );
 
-    const filteredElements = postElements.filter(Boolean);
+    const filteredElements = postElements.filter((element): element is JSX.Element => 
+      element !== null
+    );
 
     return (
       <div className="w-full max-w-7xl mx-auto">
         {/* Mobile: Show Carousel */}
         <div className="block md:hidden overflow-hidden">
-          <Carousel className="w-full">
-            <CarouselContent className="w-full max-w-full">
-              {filteredElements.length > 0 ? filteredElements.map((post, index) => (
-                <CarouselItem key={index} className="w-full">
-                  {post}
-                </CarouselItem>
-              )) : <div>No posts available</div>}
-            </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
-          </Carousel>
+          <CarouselWrapper elements={filteredElements} />
         </div>
 
         {/* Desktop: Show Responsive Grid */}
