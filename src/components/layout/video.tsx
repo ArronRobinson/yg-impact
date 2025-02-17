@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { Play } from "lucide-react";
 
 export function Video({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -71,9 +72,7 @@ export function Video({ src }: { src: string }) {
       />
       {isMobile && !isPlaying && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-          <div className="text-white text-sm bg-black bg-opacity-50 px-3 py-1 rounded-full">
-            Tap to play
-          </div>
+          <Play className="text-white w-10 h-10" />
         </div>
       )}
     </div>
