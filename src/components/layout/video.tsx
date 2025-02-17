@@ -60,7 +60,7 @@ export function Video({ src }: { src: string }) {
         playsInline
         muted
         loop
-        preload="metadata"
+        preload="auto"
       />
       {isMobile && !isPlaying && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
