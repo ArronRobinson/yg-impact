@@ -35,9 +35,9 @@ export default function Contact() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-6 py-8 mt-16">
+      <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-6 py-6 mt-16">
         {/* Left Section */}
-        <div className="w-full md:w-1/2 max-w-xl">
+        <div className="w-full md:w-1/2 max-w-xl mb-8 md:mb-0">
           <h1 className="font-playfairThin text-5xl md:text-7xl mb-2">
             {renderContent(t("title1"))}
           </h1>
