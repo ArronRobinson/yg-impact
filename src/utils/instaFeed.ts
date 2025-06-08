@@ -14,7 +14,7 @@ export async function getInstagramFeed(): Promise<post[]> {
         const response = await fetch(
             `${baseUrl}/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${process.env.META_USER_TOKEN}`,
             {
-                next: { revalidate: 3600 }, // Cache for 1 hour (ISR)
+                next: { revalidate: 60 }, // Cache for 1 hour (ISR)
             }
         );
 

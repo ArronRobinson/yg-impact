@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description: 'Join YG IMPACT to create unforgettable experiences and impactful events. Professional event planning and coordination services.',
     images: [
       {
-        url: '/og-image.jpg', // Make sure to add this image to your public folder
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'YG IMPACT Events',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: 'your-google-site-verification', // Add your Google verification code
+    google: 'your-google-site-verification', 
   },
   category: 'Event Planning',
 };
